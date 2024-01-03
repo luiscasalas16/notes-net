@@ -1,3 +1,46 @@
 # notes-net / vscode
 
 - [Visual Studio Code](https://code.visualstudio.com/docs)
+
+## Extensiones
+
+- General
+  - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+    - GitHub.copilot
+    - GitHub.copilot-chat
+  - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - [Format Files](https://marketplace.visualstudio.com/items?itemName=jbockle.jbockle-format-files)
+  - [Markdown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+  - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+  - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+  - [Code Spell Checker / Spanish](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish)
+  - [vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)
+  - [Paste JSON as Code](https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype)
+- PowerShell
+  - [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
+- Net
+  - [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+    - ms-dotnettools.csdevkit
+    - ms-dotnettools.csharp
+    - ms-dotnettools.vscode-dotnet-runtime
+- Angular
+  - Angular.ng-template
+  - Mikael.Angular-BeastCode
+  - natewallace.angular2-inline
+- React
+  - burkeholland.simple-react-snippets
+  - dsznajder.es7-react-js-snippets
+- TS
+  - pmneo.tsimporter
+- Web
+  - ecmel.vscode-html-css
+  - formulahendry.auto-close-tag
+  - formulahendry.code-runner
+- TODO
+  - github.vscode-github-actions
+  - mhutchie.git-graph
+  - ms-vscode.vscode-node-azure-pack
+  - ms-vscode-remote.remote-containers
+  - ms-vscode-remote.remote-wsl
+  - Tyriar.lorem-ipsum
+  - william-voyek.vscode-nginx
