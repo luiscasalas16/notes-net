@@ -6,8 +6,7 @@
 
 - General
   - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-    - GitHub.copilot
-    - GitHub.copilot-chat
+  - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Format Files](https://marketplace.visualstudio.com/items?itemName=jbockle.jbockle-format-files)
   - [Markdown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
@@ -20,9 +19,6 @@
   - [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 - Net
   - [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
-    - ms-dotnettools.csdevkit
-    - ms-dotnettools.csharp
-    - ms-dotnettools.vscode-dotnet-runtime
 - Angular
   - Angular.ng-template
   - Mikael.Angular-BeastCode
