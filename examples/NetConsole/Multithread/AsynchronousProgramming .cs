@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace net.Multithread
+namespace NetConsole.Multithread
 {
     //https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/
     internal class AsynchronousProgramming
