@@ -34,3 +34,19 @@ dotnet new sln --output . --name NetCleanArchitecture
 ## MariaDB
 
 - <https://mariadb.com/developers/resources/language/csharp/>
+
+### Paquetes
+
+- https://sqids.org/dotnet
+
+## Ejemplos
+
+- Bases de Datos
+  - MSSQL
+    - Wide World Importers
+      - [Release](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
+      - [Modelo](https://dataedo.com/samples/html/WideWorldImporters)
+    - Adventure Works
+      - [Release](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
+      - [Modelo](https://dataedo.com/samples/html/AdventureWorks/)
+    -
