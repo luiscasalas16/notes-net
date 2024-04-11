@@ -15,6 +15,7 @@
   - [Code Spell Checker / Spanish](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish)
   - [vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)
   - [Paste JSON as Code](https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype)
+  - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - PowerShell
   - [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 - Net
