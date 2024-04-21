@@ -20,3 +20,8 @@
     - Adventure Works
       - [Release](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
       - [Modelo](https://dataedo.com/samples/html/AdventureWorks/)
+
+## TODO
+
+- https://code-maze.com/asp-net-core-web-api-with-ef-core-db-first-approach/
+- https://code-maze.com/net-core-web-api-ef-core-code-first/

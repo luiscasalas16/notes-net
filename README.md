@@ -2,6 +2,7 @@
 
 Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
+- https://code-maze.com/dotnet-what-is-it-why-should-we-use-it/
 - [Visual Studio](./vs/README.md)
 - [Visual Studio Code](./vsc/README.md)
 - [ASP.NET](./aspnet/README.md)
@@ -27,3 +28,7 @@ dotnet new worker --output NetWorker --name XYZ
 #empty solution
 dotnet new sln --output . --name XYZ
 ```
+
+## TODO
+
+- https://code-maze.com/dotnet-using-the-cli-to-build-and-run-net-applications/
