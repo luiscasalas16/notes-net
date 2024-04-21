@@ -1,6 +1,8 @@
-# notes-net / vscode
+# notes-net / vscode - Visual Studio Code
 
-- [Visual Studio Code](https://code.visualstudio.com/docs)
+## Documentación
+
+- [Oficial](https://code.visualstudio.com/docs)
 
 ## Extensiones
 
