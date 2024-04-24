@@ -24,5 +24,5 @@
 
 ## TODO
 
-- https://code-maze.com/asp-net-core-web-api-with-ef-core-db-first-approach/
-- https://code-maze.com/net-core-web-api-ef-core-code-first/
+- <https://code-maze.com/asp-net-core-web-api-with-ef-core-db-first-approach>
+- <https://code-maze.com/net-core-web-api-ef-core-code-first>

@@ -2,7 +2,7 @@
 
 Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
-- https://code-maze.com/dotnet-what-is-it-why-should-we-use-it/
+- <https://code-maze.com/dotnet-what-is-it-why-should-we-use-it>
 - [Visual Studio](./vs/README.md)
 - [Visual Studio Code](./vsc/README.md)
 - [ASP.NET](./aspnet/README.md)
@@ -14,7 +14,9 @@ Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
 ## Comandos
 
-- [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
+- .NET CLI
+  - <https://learn.microsoft.com/en-us/dotnet/core/tools>
+  - <https://code-maze.com/dotnet-project-templates-creation/>
 
 ```powershell
 #plantillas de proyectos
@@ -31,4 +33,4 @@ dotnet new sln --output . --name XYZ
 
 ## TODO
 
-- https://code-maze.com/dotnet-using-the-cli-to-build-and-run-net-applications/
+- <https://code-maze.com/dotnet-using-the-cli-to-build-and-run-net-applications>
