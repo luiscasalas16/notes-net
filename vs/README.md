@@ -11,6 +11,7 @@
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilotvs)
 - [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.VSGitHubCopilot)
 - [CSharpier](https://marketplace.visualstudio.com/items?itemName=csharpier.CSharpier)
+- [Rainbow Braces](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.RainbowBraces)
 - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)
 - [Color Picker](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.ColorPickerTool)
 - [File Path On Footer](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.FilePathOnFooter)
