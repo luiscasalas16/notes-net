@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 
 namespace NetBaseConsole
 {
@@ -23,10 +22,10 @@ namespace NetBaseConsole
             }
             catch (Exception ex)
             {
-                Trace.WriteLine(ex.ToString());
-
-                Console.WriteLine(ex.ToString());
+                Global.Helpers.LogFailure(ex);
             }
+
+            Global.Helpers.ConsoleWait();
         }
 
         public class Application : BackgroundService
@@ -40,10 +39,11 @@ namespace NetBaseConsole
                 _configuration = configuration;
             }
 
-            protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+            protected override Task ExecuteAsync(CancellationToken stoppingToken)
             {
-                Console.WriteLine(".Net Console");
-                Console.WriteLine("Hello World " + DateTime.UtcNow.AddHours(-6).ToString("yyyy-MM-dd_HH-mm-ss-fffff"));
+                Global.Helpers.LogSuccess(".Net Console");
+
+                return Task.CompletedTask;
             }
         }
     }

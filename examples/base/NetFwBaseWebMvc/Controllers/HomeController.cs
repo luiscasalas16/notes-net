@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace NetFwBaseWebMvc.Controllers
 {
@@ -8,6 +7,12 @@ namespace NetFwBaseWebMvc.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Test()
+        {
+            return Json(new { datetime = Global.Helpers.GetDateTime() });
         }
     }
 }

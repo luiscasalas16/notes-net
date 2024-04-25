@@ -17,5 +17,11 @@ namespace NetBaseWebMvc.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Test()
+        {
+            return Json(new { datetime = Global.Helpers.GetDateTime() });
+        }
     }
 }

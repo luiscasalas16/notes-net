@@ -1,8 +1,6 @@
-using System.Diagnostics;
-
 namespace NetBaseWebMvc
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -18,8 +16,6 @@ namespace NetBaseWebMvc
 
                 app.UseRouting();
 
-                app.UseAuthorization();
-
                 app.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -28,9 +24,7 @@ namespace NetBaseWebMvc
             }
             catch (Exception ex)
             {
-                Trace.WriteLine(ex.ToString());
-
-                Console.WriteLine(ex.ToString());
+                Global.Helpers.LogFailure(ex);
             }
         }
     }
