@@ -3,14 +3,11 @@
 Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
 - <https://code-maze.com/dotnet-what-is-it-why-should-we-use-it>
-- [Visual Studio](./vs/README.md)
-- [Visual Studio Code](./vsc/README.md)
-- [ASP.NET](./aspnet/README.md)
-- [C#](./csharp/README.md)
-- [Entity Framework](./ef/README.md)
-- Ejemplos
-  - [Proyecto de ejemplo de configuración de Vite 4.](./example-vite-js/README.md)
-  - [Proyecto de ejemplo de configuración de Webpack 5.](./example-webpack-js/README.md)
+- [Visual Studio](./README-vs.md)
+- [Visual Studio Code](./README-vsc.md)
+- [ASP.NET](./README-aspnet.md)
+- [C#](./README-csharp.md)
+- [Entity Framework](./README-ef.md)
 
 ## Comandos
 
