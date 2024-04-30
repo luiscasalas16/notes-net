@@ -1,4 +1,4 @@
-# example-net-api
+# example-NetApi
 
 Proyectos de ejemplo de API en .Net Framework y .Net Core. En ambos se implementaron tres proyectos:
 - api: un proyecto tipo web que implementa el API y tiene controladores de ejemplos y pruebas.
