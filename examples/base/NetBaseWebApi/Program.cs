@@ -2,7 +2,7 @@ using NetBaseWebApi.Endpoints;
 
 namespace NetBaseWebApi
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
