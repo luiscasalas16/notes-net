@@ -4,36 +4,36 @@ namespace NetApi.Client
 {
     internal class Program
     {
-        static string url = "http://localhost:5000";
+        static string url = "http://localhost:5001";
 
         static async Task Main(string[] args)
         {
             Console.WriteLine("net");
             Console.WriteLine();
 
-            //Console.Write("press enter key to start");
-            //Console.ReadLine();
+            Console.Write("press enter key to start");
+            Console.ReadLine();
 
             Thread.Sleep(1000);
 
             try
             {
-                //await TestGet("Test1", "Get");
-                //await TestGet("Test1", "GetA");
-                //await TestGet("Test1", "GetB");
-                //await TestGet("Test1", "CGet");
-                //await TestGet("Test1", "DGet");
-                //await TestPost("Test1", "Post");
-                //await TestPost( "Test1", "PostA");
-                //await TestPost("Test1", "PostB");
-                //await TestPost("Test1", "CPost");
-                //await TestPost("Test1", "DPost");
+                await TestGet("Test1", "Get");
+                await TestGet("Test1", "GetA");
+                await TestGet("Test1", "GetB");
+                await TestGet("Test1", "CGet");
+                await TestGet("Test1", "DGet");
+                await TestPost("Test1", "Post");
+                await TestPost("Test1", "PostA");
+                await TestPost("Test1", "PostB");
+                await TestPost("Test1", "CPost");
+                await TestPost("Test1", "DPost");
 
-                //await TestGetAll("Test2");
-                //await TestGetId("Test2");
-                //await TestInsert("Test2");
-                //await TestUpdate("Test2");
-                //await TestDelete("Test2");
+                await TestGetAll("Test2");
+                await TestGetId("Test2");
+                await TestInsert("Test2");
+                await TestUpdate("Test2");
+                await TestDelete("Test2");
 
                 await TestGetAll("Test3");
                 await TestGetId("Test3");
@@ -59,8 +59,8 @@ namespace NetApi.Client
                 }"
                 );
 
-                //await TestGet("Test5", "Get1");
-                //await TestGet("Test5", "Get2");
+                await TestGet("Test5", "Get1");
+                await TestGet("Test5", "Get2");
             }
             catch (Exception ex)
             {
