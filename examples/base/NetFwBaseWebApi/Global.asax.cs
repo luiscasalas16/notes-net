@@ -1,4 +1,5 @@
 using System.Web.Http;
+using Swashbuckle.Application;
 
 namespace NetFwBaseWebApi
 {
@@ -13,6 +14,14 @@ namespace NetFwBaseWebApi
                 routeTemplate: "{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional, controller = "Home" }
             );
+
+            // Enable Swagger
+            GlobalConfiguration
+                .Configuration.EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "NetFwBaseWebApi");
+                })
+                .EnableSwaggerUi();
 
             GlobalConfiguration.Configuration.EnsureInitialized();
         }
