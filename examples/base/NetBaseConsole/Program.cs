@@ -12,10 +12,12 @@ namespace NetBaseConsole
             try
             {
                 using IHost host = Host.CreateDefaultBuilder(args)
-                    .ConfigureServices((services) =>
-                    {
-                        services.AddHostedService<Application>();
-                    })
+                    .ConfigureServices(
+                        (services) =>
+                        {
+                            services.AddHostedService<Application>();
+                        }
+                    )
                     .Build();
 
                 host.Run();

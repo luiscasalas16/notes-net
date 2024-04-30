@@ -5,9 +5,14 @@ namespace Global
 {
     public static class Helpers
     {
-        public static string GetDateTime() 
-        { 
-            return TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central America Standard Time")).ToString("yyyy-MM-dd HH-mm-ss"); 
+        public static string GetDateTime()
+        {
+            return TimeZoneInfo
+                .ConvertTimeFromUtc(
+                    DateTime.UtcNow,
+                    TimeZoneInfo.FindSystemTimeZoneById("Central America Standard Time")
+                )
+                .ToString("yyyy-MM-dd HH-mm-ss");
         }
 
         public static void ConsoleWait()
