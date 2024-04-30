@@ -31,18 +31,18 @@ namespace NetApi
                     options.SerializerSettings.Converters.Add(new StringEnumConverter());
                 });
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            //builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddSwaggerGen();
+            // Implements swagger.
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            //if (app.Environment.IsDevelopment())
-            //{
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
+            // Implements swagger.
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
             // Implements default exception handler.
             app.UseExceptionHandler("/error");
