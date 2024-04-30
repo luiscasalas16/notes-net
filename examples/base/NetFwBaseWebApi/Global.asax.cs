@@ -9,10 +9,12 @@ namespace NetFwBaseWebApi
             GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
 
             GlobalConfiguration.Configuration.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "Default",
+                routeTemplate: "{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional, controller = "Home" }
             );
+
+            GlobalConfiguration.Configuration.EnsureInitialized();
         }
     }
 }
