@@ -1,9 +1,8 @@
-using System;
 using System.Web.Http;
 using Api.Tests.Common;
+using Api.Tests.Common.Models;
 using NetFwApi.Common.Extensions;
 using NetFwApi.Common.Results;
-using NetFwApi.Models;
 
 namespace NetFwApi.Controllers
 {

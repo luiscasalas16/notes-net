@@ -28,7 +28,7 @@ namespace Api.Tests.Common.Models
         public char TypeChar { get; set; }
         public bool TypeBool { get; set; }
 
-        public TestTypesEnum TypeEnum { get; set; }
+        public int TypeEnum { get; set; }
 
         public DateTime TypeDateTime { get; set; }
         public string TypeString { get; set; } = null;
@@ -66,7 +66,7 @@ namespace Api.Tests.Common.Models
                 TypeChar = faker.Random.Char(),
                 TypeBool = faker.Random.Bool(),
 
-                TypeEnum = faker.PickRandom(Enum.GetValues(typeof(TestTypesEnum)).Cast<TestTypesEnum>().ToList()),
+                TypeEnum = (int)faker.PickRandom(Enum.GetValues(typeof(TestTypesEnum)).Cast<TestTypesEnum>().ToList()),
 
                 TypeDateTime = DateTime.Now,
                 TypeString = faker.Random.String2(16),

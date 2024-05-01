@@ -1,8 +1,8 @@
 using Api.Tests.Common;
+using Api.Tests.Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using NetApi.Common.Extensions;
 using NetApi.Common.Results;
-using NetApiCon.Models;
 
 namespace NetApiCon.Controllers
 {

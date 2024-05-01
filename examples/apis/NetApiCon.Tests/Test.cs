@@ -4,6 +4,7 @@ using System.Net.Http.Json;
 using System.Reflection.Metadata;
 using Api.Tests.Common.Models;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
 using NetApiCon.Tests.Abstractions;
 using static System.Collections.Specialized.BitVector32;
@@ -129,6 +130,56 @@ namespace NetApiCon.Tests
             var response = await HttpClient.DeleteAsync($"{controller}/1");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
+        [Theory]
+        [InlineData("Test4")]
+        public async Task TestError(string controller)
+        {
+            var response = await HttpClient.GetAsync($"{controller}/ErrorGet");
+
+            response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
+        }
+
+        [Theory]
+        [InlineData("Test4")]
+        public async Task TestValidationSuccess(string controller)
+        {
+            var parameter = new TestEntityDto
+            {
+                FistName = "Hello",
+                LastName = "World",
+                Email = "hello@world.com"
+            };
+
+            var response = await HttpClient.PostAsJsonAsync($"{controller}/ErrorValidation", parameter);
+
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
+        [Theory]
+        [InlineData("Test4")]
+        public async Task TestValidationFail(string controller)
+        {
+            var parameter = new TestEntityDto { Email = "hello@world.com" };
+
+            var response = await HttpClient.PostAsJsonAsync($"{controller}/ErrorValidation", parameter);
+
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        [Theory]
+        [InlineData("Test5", "Get1")]
+        [InlineData("Test5", "Get2")]
+        public async Task TestTypes(string controller, string action)
+        {
+            var response = await HttpClient.GetAsync($"{controller}/{action}");
+
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            var result = await response.Content.ReadFromJsonAsync<TestTypesDto>();
+
+            result.Should().NotBeNull();
         }
     }
 }
