@@ -12,6 +12,8 @@
 - [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.VSGitHubCopilot)
 - [CSharpier](https://marketplace.visualstudio.com/items?itemName=csharpier.CSharpier)
 - [Rainbow Braces](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.RainbowBraces)
+
+- [xUnit Test Project Template (.NET Framework)](https://marketplace.visualstudio.com/items?itemName=jsakamoto.xUnitTestProjectTemplate)
 - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)
 - [Color Picker](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.ColorPickerTool)
 - [File Path On Footer](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.FilePathOnFooter)
@@ -23,6 +25,8 @@
 ### Visual Studio 2019
 
 - [Target Framework Migrator](https://marketplace.visualstudio.com/items?itemName=PavelSamokha.TargetFrameworkMigrator)
+
+- [xUnit Test Project Template (.NET Framework)](https://marketplace.visualstudio.com/items?itemName=jsakamoto.xUnitTestProjectTemplate)
 - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2019)
 - [Color Picker](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.ColorPicker)
 - [File Path On Footer](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.FilePathOnFooter)

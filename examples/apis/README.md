@@ -18,7 +18,14 @@ Cada API implementa los siguientes requerimientos:
 	- “this.ResultInvalid(…)” Para retornar un error provocado por los parámetros utilizados en la invocación del API. Se retorna el código 400.
 	- “this.ResultError(…)” Para retornar un error provocado por un problema a lo interno del API. Se retorna el código 500.
     - Los resultados de error tienen cómo respuesta estandarizada una respuesta de la forma:
-
+- Referencia de API en .Net Framework : https://learn.microsoft.com/en-us/aspnet/web-api/
+- Referencia de API en .Net Core : https://learn.microsoft.com/en-us/aspnet/core/fundamentals/apis
+- Test de integración
+    - .Net Framework: https://www.strathweb.com/2012/06/asp-net-web-api-integration-testing-with-in-memory-hosting/
+    - .Net Core: https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests
+- Proyectos de pruebas
+    - .Net Framework: https://xunit.net/docs/getting-started/netfx/visual-studio
+	- .Net Core: https://xunit.net/docs/getting-started/netcore/visual-studio
 ```js
 //resultado inválidos
 {

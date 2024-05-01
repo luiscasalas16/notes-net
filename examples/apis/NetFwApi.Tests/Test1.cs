@@ -1,16 +1,18 @@
-using System.Net;
-using System.Net.Http.Json;
+﻿using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Api.Tests.Common.Models;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
-using NetApiCon.Tests.Abstractions;
+using NetFwApi.Tests.Abstractions;
+using NetFwApi.Tests.Extensions;
+using Xunit;
 
-namespace NetApiCon.Tests
+namespace NetFwApi.Tests
 {
     public class Test1 : BaseTests
     {
-        public Test1(WebApplicationFactory<Program> factory)
-            : base(factory) { }
+        public Test1()
+            : base() { }
 
         [Theory]
         [InlineData("Test1", "Get")]
@@ -20,7 +22,7 @@ namespace NetApiCon.Tests
         [InlineData("Test1", "DGet")]
         public async Task TestGet(string controller, string action)
         {
-            var response = await HttpClient.GetAsync($"{controller}/{action}");
+            var response = await HttpClient.GetAsync($"{URL}/{controller}/{action}");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -39,7 +41,10 @@ namespace NetApiCon.Tests
         {
             var parameter = new TestRequestDto { InputMessage = $"{controller} - {action}" };
 
-            var response = await HttpClient.PostAsJsonAsync($"{controller}/{action}", parameter);
+            var response = await HttpClient.PostAsJsonAsync(
+                $"{URL}/{controller}/{action}",
+                parameter
+            );
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
