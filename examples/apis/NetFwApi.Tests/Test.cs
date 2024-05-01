@@ -1,16 +1,19 @@
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Net.Http.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Api.Tests.Common.Models;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
-using NetApiCon.Tests.Abstractions;
+using NetFwApi.Tests.Abstractions;
+using NetFwApi.Tests.Extensions;
+using Xunit;
 
-namespace NetApiCon.Tests
+namespace NetFwApi.Tests
 {
     public class Test : BaseTests
     {
-        public Test(WebApplicationFactory<Program> factory)
-            : base(factory) { }
+        public Test()
+            : base() { }
 
         [Theory]
         [InlineData("Test1", "Get")]
@@ -20,7 +23,7 @@ namespace NetApiCon.Tests
         [InlineData("Test1", "DGet")]
         public async Task TestGet(string controller, string action)
         {
-            var response = await HttpClient.GetAsync($"{controller}/{action}");
+            var response = await HttpClient.GetAsync($"{URL}/{controller}/{action}");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -39,7 +42,7 @@ namespace NetApiCon.Tests
         {
             var parameter = new TestRequestDto { InputMessage = $"{controller} - {action}" };
 
-            var response = await HttpClient.PostAsJsonAsync($"{controller}/{action}", parameter);
+            var response = await HttpClient.PostAsJsonAsync($"{URL}/{controller}/{action}", parameter);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -53,7 +56,7 @@ namespace NetApiCon.Tests
         [InlineData("Test3")]
         public async Task TestGetAll(string controller)
         {
-            var response = await HttpClient.GetAsync($"{controller}");
+            var response = await HttpClient.GetAsync($"{URL}/{controller}");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -67,7 +70,7 @@ namespace NetApiCon.Tests
         [InlineData("Test3")]
         public async Task TestGetId(string controller)
         {
-            var response = await HttpClient.GetAsync($"{controller}/1");
+            var response = await HttpClient.GetAsync($"{URL}/{controller}/1");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -88,17 +91,17 @@ namespace NetApiCon.Tests
                 Email = "hello@world.com"
             };
 
-            var response = await HttpClient.PostAsJsonAsync($"{controller}", parameter);
+            var response = await HttpClient.PostAsJsonAsync($"{URL}/{controller}", parameter);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var result = await response.Content.ReadFromJsonAsync<TestEntityDto>();
 
             result.Should().NotBeNull();
-            result!.FistName.Should().Be(parameter.FistName);
-            result!.LastName.Should().Be(parameter.LastName);
-            result!.Email.Should().Be(parameter.Email);
-            result!.Id.Should().BeGreaterThan(0);
+            result.FistName.Should().Be(parameter.FistName);
+            result.LastName.Should().Be(parameter.LastName);
+            result.Email.Should().Be(parameter.Email);
+            result.Id.Should().BeGreaterThan(0);
         }
 
         [Theory]
@@ -113,7 +116,7 @@ namespace NetApiCon.Tests
                 Email = "hello@world.com"
             };
 
-            var response = await HttpClient.PutAsJsonAsync($"{controller}/1", parameter);
+            var response = await HttpClient.PutAsJsonAsync($"{URL}/{controller}/1", parameter);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
@@ -123,7 +126,7 @@ namespace NetApiCon.Tests
         [InlineData("Test3")]
         public async Task TestDelete(string controller)
         {
-            var response = await HttpClient.DeleteAsync($"{controller}/1");
+            var response = await HttpClient.DeleteAsync($"{URL}/{controller}/1");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
@@ -132,7 +135,7 @@ namespace NetApiCon.Tests
         [InlineData("Test4")]
         public async Task TestError(string controller)
         {
-            var response = await HttpClient.GetAsync($"{controller}/ErrorGet");
+            var response = await HttpClient.GetAsync($"{URL}/{controller}/ErrorGet");
 
             response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
         }
@@ -148,7 +151,7 @@ namespace NetApiCon.Tests
                 Email = "hello@world.com"
             };
 
-            var response = await HttpClient.PostAsJsonAsync($"{controller}/ErrorValidation", parameter);
+            var response = await HttpClient.PostAsJsonAsync($"{URL}/{controller}/ErrorValidation", parameter);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
@@ -159,7 +162,7 @@ namespace NetApiCon.Tests
         {
             var parameter = new TestEntityDto { Email = "hello@world.com" };
 
-            var response = await HttpClient.PostAsJsonAsync($"{controller}/ErrorValidation", parameter);
+            var response = await HttpClient.PostAsJsonAsync($"{URL}/{controller}/ErrorValidation", parameter);
 
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
@@ -169,7 +172,7 @@ namespace NetApiCon.Tests
         [InlineData("Test5", "Get2")]
         public async Task TestTypes(string controller, string action)
         {
-            var response = await HttpClient.GetAsync($"{controller}/{action}");
+            var response = await HttpClient.GetAsync($"{URL}/{controller}/{action}");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 

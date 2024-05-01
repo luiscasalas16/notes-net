@@ -67,7 +67,7 @@
     <Compile Include="Abstractions\BaseTests.cs" />
     <Compile Include="Extensions\HttpContentExtensions.cs" />
     <Compile Include="Extensions\HttpMessageInvokerExtensions.cs" />
-    <Compile Include="Test1.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
