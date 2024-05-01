@@ -29,17 +29,17 @@ namespace NetApi.Client
                 //await TestPost("Test1", "CPost");
                 //await TestPost("Test1", "DPost");
 
-                await TestGetAll("Test2");
-                await TestGetId("Test2");
-                await TestInsert("Test2");
-                await TestUpdate("Test2");
-                await TestDelete("Test2");
+                //await TestGetAll("Test2");
+                //await TestGetId("Test2");
+                //await TestInsert("Test2");
+                //await TestUpdate("Test2");
+                //await TestDelete("Test2");
 
-                await TestGetAll("Test3");
-                await TestGetId("Test3");
-                await TestInsert("Test3");
-                await TestUpdate("Test3");
-                await TestDelete("Test3");
+                //await TestGetAll("Test3");
+                //await TestGetId("Test3");
+                //await TestInsert("Test3");
+                //await TestUpdate("Test3");
+                //await TestDelete("Test3");
 
                 await TestGet("Test4", "ErrorGet");
                 await TestValidation(
