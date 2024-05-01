@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Bogus;
 
-namespace NetApi.Models
+namespace NetApiCon.Models
 {
     public enum TestTypesEnum
     {

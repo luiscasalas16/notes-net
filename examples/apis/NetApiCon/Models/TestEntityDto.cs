@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NetApi.Models
+namespace NetApiCon.Models
 {
     public class TestEntityDto
     {

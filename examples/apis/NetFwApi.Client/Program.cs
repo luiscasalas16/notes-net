@@ -8,7 +8,7 @@ namespace NetFwApi.Client
 {
     internal class Program
     {
-        static string url = "http://localhost:5002";
+        static string url = "http://localhost:5003";
 
         static async Task Main(string[] args)
         {

@@ -3,7 +3,7 @@ using NetApi.Common.Results;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace NetApi
+namespace NetApiCon
 {
     public class Program
     {

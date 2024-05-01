@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NetApi.Common.Extensions;
 using NetApi.Common.Results;
-using NetApi.Models;
+using NetApiCon.Models;
 
-namespace NetApi.Controllers
+namespace NetApiCon.Controllers
 {
     [ApiController, Route("[controller]/[action]")]
     public class Test5Controller : ControllerBase

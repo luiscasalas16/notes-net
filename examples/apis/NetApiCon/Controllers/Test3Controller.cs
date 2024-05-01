@@ -1,14 +1,16 @@
 ﻿using Bogus;
 using Microsoft.AspNetCore.Mvc;
-using NetApi.Models;
+using NetApi.Common.Extensions;
+using NetApi.Common.Results;
+using NetApiCon.Models;
 
-namespace NetApi.Controllers
+namespace NetApiCon.Controllers
 {
     [ApiController, Route("[controller]")]
-    public class Test2Controller : ControllerBase
+    public class Test3Controller : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<TestEntityDto> Get()
+        public Result Get()
         {
             var result = new Faker<TestEntityDto>()
                 .RuleFor(o => o.Id, f => f.Random.Int(1, 100))
@@ -16,11 +18,11 @@ namespace NetApi.Controllers
                 .RuleFor(o => o.LastName, f => f.Name.LastName())
                 .RuleFor(o => o.Email, f => f.Internet.Email());
 
-            return result.Generate(2);
+            return this.ResultValid(result.Generate(2));
         }
 
         [HttpGet("{id}")]
-        public TestEntityDto Get(int id)
+        public Result Get(int id)
         {
             var result = new Faker<TestEntityDto>()
                 .RuleFor(o => o.Id, id)
@@ -28,11 +30,11 @@ namespace NetApi.Controllers
                 .RuleFor(o => o.LastName, f => f.Name.LastName())
                 .RuleFor(o => o.Email, f => f.Internet.Email());
 
-            return result.Generate(1)[0];
+            return this.ResultValid(result.Generate(1)[0]);
         }
 
         [HttpPost]
-        public TestEntityDto Post(TestEntityDto value)
+        public Result Post(TestEntityDto value)
         {
             Assert(value.FistName == "Hello");
             Assert(value.LastName == "World");
@@ -40,22 +42,26 @@ namespace NetApi.Controllers
 
             value.Id = new Faker().Random.Int(1, 100);
 
-            return value;
+            return this.ResultValid(value);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, TestEntityDto value)
+        public Result Put(int id, TestEntityDto value)
         {
             Assert(id == 1);
             Assert(value.FistName == "Hello");
             Assert(value.LastName == "World");
             Assert(value.Email == "hello@world.com");
+
+            return this.ResultValid();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public Result Delete(int id)
         {
             Assert(id == 1);
+
+            return this.ResultValid();
         }
 
         private void Assert(bool expression)
