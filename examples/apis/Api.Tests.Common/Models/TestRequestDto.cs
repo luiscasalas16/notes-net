@@ -1,6 +1,6 @@
-﻿namespace NetFwApi.Models
+﻿namespace Api.Tests.Common.Models
 {
-    public class TestDto
+    public class TestRequestDto
     {
         public string InputMessage { get; set; } = null;
     }

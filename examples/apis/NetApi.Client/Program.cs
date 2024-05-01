@@ -18,16 +18,16 @@ namespace NetApi.Client
 
             try
             {
-                await TestGet("Test1", "Get");
-                await TestGet("Test1", "GetA");
-                await TestGet("Test1", "GetB");
-                await TestGet("Test1", "CGet");
-                await TestGet("Test1", "DGet");
-                await TestPost("Test1", "Post");
-                await TestPost("Test1", "PostA");
-                await TestPost("Test1", "PostB");
-                await TestPost("Test1", "CPost");
-                await TestPost("Test1", "DPost");
+                //await TestGet("Test1", "Get");
+                //await TestGet("Test1", "GetA");
+                //await TestGet("Test1", "GetB");
+                //await TestGet("Test1", "CGet");
+                //await TestGet("Test1", "DGet");
+                //await TestPost("Test1", "Post");
+                //await TestPost("Test1", "PostA");
+                //await TestPost("Test1", "PostB");
+                //await TestPost("Test1", "CPost");
+                //await TestPost("Test1", "DPost");
 
                 await TestGetAll("Test2");
                 await TestGetId("Test2");

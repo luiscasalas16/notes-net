@@ -102,8 +102,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\TestEntityDto.cs" />
-    <Compile Include="Models\TestDto.cs" />
-    <Compile Include="Models\TestDtoResult.cs" />
+    <Compile Include="Models\TestRequestDto.cs" />
+    <Compile Include="Models\TestResponseDto.cs" />
     <Compile Include="Models\TestTypesDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

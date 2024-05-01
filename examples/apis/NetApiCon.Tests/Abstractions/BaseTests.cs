@@ -13,10 +13,18 @@ namespace NetApiCon.Tests.Abstractions
             HttpClient = factory.CreateClient();
         }
 
-        public static void AssertDateTimeResult(TestDtoResult? result)
+        public static void AssertGetResult(TestResponseDto? result)
         {
             result.Should().NotBeNull();
-            result!.OutputMessage.Should().MatchRegex(@"\d+ - \d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}");
+            result!.OutputMessage.Should().MatchRegex(@"\w+ - \d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}");
+        }
+
+        public static void AssertPostResult(string message, TestResponseDto? result)
+        {
+            result.Should().NotBeNull();
+            result!
+                .OutputMessage.Should()
+                .MatchRegex(message + @" - \w+ - \d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}");
         }
     }
 }

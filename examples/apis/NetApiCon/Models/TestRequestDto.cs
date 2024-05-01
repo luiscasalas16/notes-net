@@ -1,6 +1,6 @@
 ﻿namespace NetApiCon.Models
 {
-    public class TestDto
+    public class TestRequestDto
     {
         public string? InputMessage { get; set; } = null!;
     }

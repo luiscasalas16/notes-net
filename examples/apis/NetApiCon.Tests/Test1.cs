@@ -12,19 +12,40 @@ namespace NetApiCon.Tests
         public Test1(WebApplicationFactory<Program> factory)
             : base(factory) { }
 
-        [Fact]
-        public async Task Test1Get()
+        [Theory]
+        [InlineData("Test1", "Get")]
+        [InlineData("Test1", "GetA")]
+        [InlineData("Test1", "GetB")]
+        [InlineData("Test1", "CGet")]
+        [InlineData("Test1", "DGet")]
+        public async Task TestGet(string controller, string action)
         {
-            string controller = "Test1";
-            string action = "Get";
-
             var response = await HttpClient.GetAsync($"{controller}/{action}");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-            var result = await response.Content.ReadFromJsonAsync<TestDtoResult>();
+            var result = await response.Content.ReadFromJsonAsync<TestResponseDto>();
 
-            AssertDateTimeResult(result);
+            AssertGetResult(result);
+        }
+
+        [Theory]
+        [InlineData("Test1", "Post")]
+        [InlineData("Test1", "PostA")]
+        [InlineData("Test1", "PostB")]
+        [InlineData("Test1", "CPost")]
+        [InlineData("Test1", "DPost")]
+        public async Task TestPost(string controller, string action)
+        {
+            var request = new TestRequestDto { InputMessage = $"{controller} - {action}" };
+
+            var response = await HttpClient.PostAsJsonAsync($"{controller}/{action}", request);
+
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            var result = await response.Content.ReadFromJsonAsync<TestResponseDto>();
+
+            AssertPostResult(request.InputMessage, result);
         }
     }
 }

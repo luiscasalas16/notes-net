@@ -45,42 +45,42 @@ namespace NetFwApi.Controllers
         }
 
         [HttpPost]
-        public Result Post(TestDto parameters)
+        public Result Post(TestRequestDto parameters)
         {
             return PostResult(parameters, "0");
         }
 
         [HttpPost]
-        public Result PostA(TestDto parameters)
+        public Result PostA(TestRequestDto parameters)
         {
             return PostResult(parameters, "A");
         }
 
         [HttpPost]
-        public Result PostB(TestDto parameters)
+        public Result PostB(TestRequestDto parameters)
         {
             return PostResult(parameters, "B");
         }
 
         [HttpPost, ActionName("CPost")]
-        public Result PostC(TestDto parameters)
+        public Result PostC(TestRequestDto parameters)
         {
             return PostResult(parameters, "C");
         }
 
         [HttpPost, ActionName("DPost")]
-        public Result PostD(TestDto parameters)
+        public Result PostD(TestRequestDto parameters)
         {
             return PostResult(parameters, "D");
         }
 
-        private Result PostResult(TestDto parameters, string id)
+        private Result PostResult(TestRequestDto parameters, string id)
         {
             if (this.Validate(parameters, out Result resultado))
                 return resultado;
 
             return this.ResultValid(
-                new TestDtoResult()
+                new TestResponseDto()
                 {
                     OutputMessage =
                         $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}"
