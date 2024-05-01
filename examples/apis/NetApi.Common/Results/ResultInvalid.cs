@@ -11,18 +11,9 @@ namespace NetApi.Common.Results
             : base(new List<ResultMessage> { new ResultMessage(error) }, statusCode) { }
 
         public ResultInvalid(List<string> errors)
-            : base(
-                new List<ResultMessage>(errors.Select(t => new ResultMessage(t)).ToList()),
-                statusCode
-            ) { }
+            : base(new List<ResultMessage>(errors.Select(t => new ResultMessage(t)).ToList()), statusCode) { }
 
         public ResultInvalid(ModelStateDictionary modelState)
-            : base(
-                modelState
-                    .Values.SelectMany(m => m.Errors)
-                    .Select(e => new ResultMessage(e.ErrorMessage))
-                    .ToList(),
-                statusCode
-            ) { }
+            : base(modelState.Values.SelectMany(m => m.Errors).Select(e => new ResultMessage(e.ErrorMessage)).ToList(), statusCode) { }
     }
 }

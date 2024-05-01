@@ -41,9 +41,7 @@ namespace NetApiCon.Controllers
 
         private Result GetResult(string id)
         {
-            return this.ResultValid(
-                new TestResponseDto { OutputMessage = $"{id} - {Helpers.GetDateTime()}" }
-            );
+            return this.ResultValid(new TestResponseDto { OutputMessage = $"{id} - {Helpers.GetDateTime()}" });
         }
 
         [HttpPost]
@@ -81,12 +79,7 @@ namespace NetApiCon.Controllers
             if (this.Validate(parameters, out Result resultado))
                 return resultado;
 
-            return this.ResultValid(
-                new TestResponseDto()
-                {
-                    OutputMessage = $"{parameters.InputMessage} - {id} - {Helpers.GetDateTime()}"
-                }
-            );
+            return this.ResultValid(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage} - {id} - {Helpers.GetDateTime()}" });
         }
     }
 }

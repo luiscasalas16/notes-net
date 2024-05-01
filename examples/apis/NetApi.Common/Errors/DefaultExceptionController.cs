@@ -11,9 +11,7 @@ namespace NetApi.Common.Errores
     public class DefaultExceptionController : ControllerBase
     {
         [Route("/error")]
-        public IActionResult ErrorLocalDevelopment(
-            [FromServices] ILogger<DefaultExceptionController> logger
-        )
+        public IActionResult ErrorLocalDevelopment([FromServices] ILogger<DefaultExceptionController> logger)
         {
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>()!;
 

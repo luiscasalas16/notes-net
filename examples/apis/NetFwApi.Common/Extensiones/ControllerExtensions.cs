@@ -18,15 +18,9 @@ namespace NetFwApi.Common.Extensions
             return new ResultInvalid(controller.Request, error);
         }
 
-        public static Result ResultInvalid(
-            this ApiController controller,
-            ModelStateDictionary modelState
-        )
+        public static Result ResultInvalid(this ApiController controller, ModelStateDictionary modelState)
         {
-            return new ResultInvalid(
-                controller.Request,
-                modelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList()
-            );
+            return new ResultInvalid(controller.Request, modelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList());
         }
 
         public static Result ResultUnexpected(this ApiController controller, string error)
@@ -34,11 +28,7 @@ namespace NetFwApi.Common.Extensions
             return new ResultError(controller.Request, error);
         }
 
-        public static bool Validate<T>(
-            this ApiController controller,
-            T model,
-            out Result resultinvalid
-        )
+        public static bool Validate<T>(this ApiController controller, T model, out Result resultinvalid)
         {
             if (model == null)
             {

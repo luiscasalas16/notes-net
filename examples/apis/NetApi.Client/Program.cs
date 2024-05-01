@@ -83,11 +83,7 @@ namespace NetApi.Client
         {
             var request = new HttpRequestMessage(HttpMethod.Post, $"{url}/{controller}/{action}")
             {
-                Content = new StringContent(
-                    $"{{ \"InputMessage\": \"{controller} - {action}\" }}",
-                    null,
-                    "application/json"
-                )
+                Content = new StringContent($"{{ \"InputMessage\": \"{controller} - {action}\" }}", null, "application/json")
             };
 
             await TestExecute($"{controller} - {action}", request);
@@ -179,10 +175,7 @@ namespace NetApi.Client
                 {
                     var responseObject = JsonConvert.DeserializeObject(responseTextPrint);
 
-                    responseTextPrint = JsonConvert.SerializeObject(
-                        responseObject,
-                        Formatting.Indented
-                    );
+                    responseTextPrint = JsonConvert.SerializeObject(responseObject, Formatting.Indented);
                 }
                 catch (Exception)
                 {
@@ -190,9 +183,7 @@ namespace NetApi.Client
                 }
             }
 
-            Console.ForegroundColor = response.IsSuccessStatusCode
-                ? ConsoleColor.Green
-                : ConsoleColor.Red;
+            Console.ForegroundColor = response.IsSuccessStatusCode ? ConsoleColor.Green : ConsoleColor.Red;
 
             Console.WriteLine($"{test} - {response.StatusCode}");
             Console.WriteLine(responseTextPrint);

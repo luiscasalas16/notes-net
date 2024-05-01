@@ -13,10 +13,6 @@ namespace NetFwApi.Common.Results
             : base(new List<ResultMessage> { new ResultMessage(error) }, statusCode, request) { }
 
         public ResultError(HttpRequestMessage request, params string[] error)
-            : base(
-                new List<ResultMessage>(error.Select(t => new ResultMessage(t))),
-                statusCode,
-                request
-            ) { }
+            : base(new List<ResultMessage>(error.Select(t => new ResultMessage(t))), statusCode, request) { }
     }
 }

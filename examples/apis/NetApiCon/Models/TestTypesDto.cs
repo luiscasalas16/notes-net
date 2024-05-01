@@ -72,19 +72,10 @@ namespace NetApiCon.Models
                 TypeByteArray = faker.Random.Bytes(16),
                 TypeIntArray = Enumerable.Range(1, 8).Select(_ => faker.Random.Int(1)).ToArray(),
                 TypeStringArray = Enumerable.Range(1, 8).Select(_ => faker.Random.Word()).ToArray(),
-                TypeObjectgArray = Enumerable
-                    .Range(1, 2)
-                    .Select(_ => fakerEntityDto.Generate(1))
-                    .ToArray(),
+                TypeObjectgArray = Enumerable.Range(1, 2).Select(_ => fakerEntityDto.Generate(1)).ToArray(),
 
-                TypeList = Enumerable
-                    .Range(1, 2)
-                    .Select(_ => fakerEntityDto.Generate(1))
-                    .ToList<object>(),
-                TypeDictionary = oneEntityDto
-                    .GetType()
-                    .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                    .ToDictionary(prop => prop.Name, prop => prop.GetValue(oneEntityDto, null))
+                TypeList = Enumerable.Range(1, 2).Select(_ => fakerEntityDto.Generate(1)).ToList<object>(),
+                TypeDictionary = oneEntityDto.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).ToDictionary(prop => prop.Name, prop => prop.GetValue(oneEntityDto, null))
             };
 
             return dto;

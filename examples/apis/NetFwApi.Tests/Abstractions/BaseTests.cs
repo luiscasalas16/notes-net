@@ -39,9 +39,7 @@ namespace NetFwApi.Tests.Abstractions
         public static void AssertPostResult(string message, TestResponseDto result)
         {
             result.Should().NotBeNull();
-            result
-                .OutputMessage.Should()
-                .MatchRegex(message + @" - \w+ - \d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}");
+            result.OutputMessage.Should().MatchRegex(message + @" - \w+ - \d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}");
         }
     }
 }

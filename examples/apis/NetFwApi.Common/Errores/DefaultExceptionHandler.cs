@@ -21,11 +21,7 @@ namespace NetFwApi.Common.Errores
             }
             else
             {
-                context.Result = new ResultError(
-                    context.Request,
-                    "internal api error",
-                    context.Exception.Message
-                );
+                context.Result = new ResultError(context.Request, "internal api error", context.Exception.Message);
             }
         }
     }

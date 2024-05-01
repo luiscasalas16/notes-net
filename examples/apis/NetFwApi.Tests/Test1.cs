@@ -41,10 +41,7 @@ namespace NetFwApi.Tests
         {
             var parameter = new TestRequestDto { InputMessage = $"{controller} - {action}" };
 
-            var response = await HttpClient.PostAsJsonAsync(
-                $"{URL}/{controller}/{action}",
-                parameter
-            );
+            var response = await HttpClient.PostAsJsonAsync($"{URL}/{controller}/{action}", parameter);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 

@@ -67,9 +67,7 @@ namespace NetFwApi.Models
                 TypeChar = faker.Random.Char(),
                 TypeBool = faker.Random.Bool(),
 
-                TypeEnum = faker.PickRandom(
-                    Enum.GetValues(typeof(TestTypesEnum)).Cast<TestTypesEnum>().ToList()
-                ),
+                TypeEnum = faker.PickRandom(Enum.GetValues(typeof(TestTypesEnum)).Cast<TestTypesEnum>().ToList()),
 
                 TypeDateTime = DateTime.Now,
                 TypeString = faker.Random.String2(16),
@@ -78,19 +76,10 @@ namespace NetFwApi.Models
                 TypeByteArray = faker.Random.Bytes(16),
                 TypeIntArray = Enumerable.Range(1, 8).Select(_ => faker.Random.Int(1)).ToArray(),
                 TypeStringArray = Enumerable.Range(1, 8).Select(_ => faker.Random.Word()).ToArray(),
-                TypeObjectgArray = Enumerable
-                    .Range(1, 2)
-                    .Select(_ => fakerEntityDto.Generate(1))
-                    .ToArray(),
+                TypeObjectgArray = Enumerable.Range(1, 2).Select(_ => fakerEntityDto.Generate(1)).ToArray(),
 
-                TypeList = Enumerable
-                    .Range(1, 2)
-                    .Select(_ => fakerEntityDto.Generate(1))
-                    .ToList<object>(),
-                TypeDictionary = oneEntityDto
-                    .GetType()
-                    .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                    .ToDictionary(prop => prop.Name, prop => prop.GetValue(oneEntityDto, null))
+                TypeList = Enumerable.Range(1, 2).Select(_ => fakerEntityDto.Generate(1)).ToList<object>(),
+                TypeDictionary = oneEntityDto.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).ToDictionary(prop => prop.Name, prop => prop.GetValue(oneEntityDto, null))
             };
 
             return dto;

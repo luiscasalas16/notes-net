@@ -14,20 +14,9 @@ namespace NetFwApi.Common.Results
             : base(new List<ResultMessage> { new ResultMessage(error) }, statusCode, request) { }
 
         public ResultInvalid(HttpRequestMessage request, List<string> errors)
-            : base(
-                new List<ResultMessage>(errors.Select(t => new ResultMessage(t)).ToList()),
-                statusCode,
-                request
-            ) { }
+            : base(new List<ResultMessage>(errors.Select(t => new ResultMessage(t)).ToList()), statusCode, request) { }
 
         public ResultInvalid(HttpRequestMessage request, ModelStateDictionary modelState)
-            : base(
-                modelState
-                    .Values.SelectMany(m => m.Errors)
-                    .Select(e => new ResultMessage(e.ErrorMessage))
-                    .ToList(),
-                statusCode,
-                request
-            ) { }
+            : base(modelState.Values.SelectMany(m => m.Errors).Select(e => new ResultMessage(e.ErrorMessage)).ToList(), statusCode, request) { }
     }
 }

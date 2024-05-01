@@ -79,13 +79,7 @@ namespace NetFwApi.Controllers
             if (this.Validate(parameters, out Result resultado))
                 return resultado;
 
-            return this.ResultValid(
-                new TestResponseDto()
-                {
-                    OutputMessage =
-                        $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}"
-                }
-            );
+            return this.ResultValid(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}" });
         }
     }
 }

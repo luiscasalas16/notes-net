@@ -12,12 +12,7 @@ namespace NetFwApi.Filters
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             if (actionContext.ModelState.IsValid == false)
-                actionContext.Response = new ResultInvalid(
-                    actionContext.Request,
-                    actionContext.ModelState
-                )
-                    .ExecuteAsync(CancellationToken.None)
-                    .Result;
+                actionContext.Response = new ResultInvalid(actionContext.Request, actionContext.ModelState).ExecuteAsync(CancellationToken.None).Result;
         }
     }
 }

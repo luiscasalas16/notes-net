@@ -21,14 +21,9 @@ namespace NetApi.Common.Extensions
             return new ResultInvalid(error);
         }
 
-        public static Result ResultInvalid(
-            this ControllerBase controller,
-            ModelStateDictionary modelState
-        )
+        public static Result ResultInvalid(this ControllerBase controller, ModelStateDictionary modelState)
         {
-            return new ResultInvalid(
-                modelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList()
-            );
+            return new ResultInvalid(modelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList());
         }
 
         public static Result ResultUnexpected(this ControllerBase controller, string error)
@@ -36,11 +31,7 @@ namespace NetApi.Common.Extensions
             return new ResultError(error);
         }
 
-        public static bool Validate<T>(
-            this ControllerBase controller,
-            T model,
-            out Result resultinvalid
-        )
+        public static bool Validate<T>(this ControllerBase controller, T model, out Result resultinvalid)
         {
             if (model == null)
             {

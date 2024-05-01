@@ -26,8 +26,7 @@ namespace NetApiCon
                 .AddNewtonsoftJson(options =>
                 {
                     //options.SerializerSettings.DateFormatString = "dd/MM/yyyy HH:mm:ss";
-                    options.SerializerSettings.ContractResolver =
-                        new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                     options.SerializerSettings.Converters.Add(new StringEnumConverter());
                 });
 
