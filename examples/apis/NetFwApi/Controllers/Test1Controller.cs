@@ -1,5 +1,6 @@
 using System;
 using System.Web.Http;
+using Api.Tests.Common;
 using NetFwApi.Common.Extensions;
 using NetFwApi.Common.Results;
 using NetFwApi.Models;
@@ -40,12 +41,7 @@ namespace NetFwApi.Controllers
 
         private Result GetResult(string id)
         {
-            return this.ResultValid(
-                new
-                {
-                    OutputMessage = $"{id} - {DateTime.UtcNow.AddHours(-6).ToString("yyyy-MM-dd_HH-mm-ss-fffff")}"
-                }
-            );
+            return this.ResultValid(new { OutputMessage = $"{id} - {Helpers.GetDateTime()}" });
         }
 
         [HttpPost]
@@ -87,7 +83,7 @@ namespace NetFwApi.Controllers
                 new TestDtoResult()
                 {
                     OutputMessage =
-                        $"{parameters.InputMessage ?? ""} - {id} - {DateTime.UtcNow.AddHours(-6).ToString("yyyy-MM-dd_HH-mm-ss-fffff")}"
+                        $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}"
                 }
             );
         }

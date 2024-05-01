@@ -1,3 +1,4 @@
+using Api.Tests.Common;
 using Microsoft.AspNetCore.Mvc;
 using NetApi.Common.Extensions;
 using NetApi.Common.Results;
@@ -41,10 +42,7 @@ namespace NetApiCon.Controllers
         private Result GetResult(string id)
         {
             return this.ResultValid(
-                new
-                {
-                    OutputMessage = $"{id} - {DateTime.UtcNow.AddHours(-6).ToString("yyyy-MM-dd_HH-mm-ss-fffff")}"
-                }
+                new TestDtoResult { OutputMessage = $"{id} - {Helpers.GetDateTime()}" }
             );
         }
 
@@ -86,8 +84,7 @@ namespace NetApiCon.Controllers
             return this.ResultValid(
                 new TestDtoResult()
                 {
-                    OutputMessage =
-                        $"{parameters.InputMessage} - {id} - {DateTime.UtcNow.AddHours(-6).ToString("yyyy-MM-dd_HH-mm-ss-fffff")}"
+                    OutputMessage = $"{parameters.InputMessage} - {id} - {Helpers.GetDateTime()}"
                 }
             );
         }

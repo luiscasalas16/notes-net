@@ -118,6 +118,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Api.Tests.Common\Api.Tests.Common.csproj">
+      <Project>{60f2d252-117d-42fa-8fc5-60142bcf212b}</Project>
+      <Name>Api.Tests.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NetFwApi.Common\NetFwApi.Common.csproj">
       <Project>{187cebcd-6e8b-4181-a9f4-252db2793f9a}</Project>
       <Name>NetFwApi.Common</Name>
