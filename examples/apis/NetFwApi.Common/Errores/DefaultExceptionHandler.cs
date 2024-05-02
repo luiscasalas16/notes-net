@@ -1,4 +1,6 @@
-﻿using System.Web.Http.ExceptionHandling;
+﻿using System.Collections.Generic;
+using System.Web.Http.ExceptionHandling;
+using System.Web.Http.Results;
 using NetFwApi.Common.Results;
 
 namespace NetFwApi.Common.Errores
@@ -11,17 +13,21 @@ namespace NetFwApi.Common.Errores
         {
             if (context.Exception is ValidationException errorValidacion)
             {
-                context.Result = new ResultInvalid(context.Request, errorValidacion.Message);
-                return;
+                var result = new ResultClientError(new List<Error>() { new Error("", errorValidacion.Message) });
+
+                context.Result = new Result<ResultClientError>(result.Status, result, context.Request);
             }
             else if (context.Exception is ConfigurationException errorConfiguracion)
             {
-                context.Result = new ResultError(context.Request, errorConfiguracion.Message);
-                return;
+                var result = new ResultServerError(errorConfiguracion.Message);
+
+                context.Result = new Result<ResultServerError>(result.Status, result, context.Request);
             }
             else
             {
-                context.Result = new ResultError(context.Request, "internal api error", context.Exception.Message);
+                var result = new ResultServerError(context.Exception);
+
+                context.Result = new Result<ResultServerError>(result.Status, result, context.Request);
             }
         }
     }

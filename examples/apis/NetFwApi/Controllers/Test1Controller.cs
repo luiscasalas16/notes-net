@@ -1,4 +1,5 @@
 using System.Web.Http;
+using System.Web.Http.Results;
 using Api.Tests.Common;
 using Api.Tests.Common.Models;
 using NetFwApi.Common.Extensions;

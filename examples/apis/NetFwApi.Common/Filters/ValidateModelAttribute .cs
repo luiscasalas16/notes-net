@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using NetFwApi.Common.Results;
@@ -11,8 +12,12 @@ namespace NetFwApi.Filters
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
-            if (actionContext.ModelState.IsValid == false)
-                actionContext.Response = new ResultInvalid(actionContext.Request, actionContext.ModelState).ExecuteAsync(CancellationToken.None).Result;
+            if (!actionContext.ModelState.IsValid)
+            {
+                var result = Result.Failure(actionContext.ModelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList(), actionContext.Request);
+
+                actionContext.Response = result.ExecuteAsync(CancellationToken.None).Result;
+            }
         }
     }
 }

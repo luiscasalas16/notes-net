@@ -57,10 +57,9 @@
     <Compile Include="Filters\ValidateModelAttribute .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\Result.cs" />
-    <Compile Include="Results\ResultInvalid.cs" />
-    <Compile Include="Results\ResultMessage.cs" />
+    <Compile Include="Results\ResultClientError.cs" />
     <Compile Include="Results\ResultError.cs" />
-    <Compile Include="Results\ResultValid.cs" />
+    <Compile Include="Results\ResultServerError.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

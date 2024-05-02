@@ -8,24 +8,24 @@ namespace NetFwApi.Common.Extensions
 {
     public static class ControllerExtensions
     {
-        public static Result ResultValid(this ApiController controller, object data = null)
+        public static Result ResultValid(this ApiController controller)
         {
-            return new ResultValid(controller.Request, data);
+            return Result.Success(controller.Request);
+        }
+
+        public static Result ResultValid<TValue>(this ApiController controller, TValue data)
+        {
+            return Result.Success(data, controller.Request);
         }
 
         public static Result ResultInvalid(this ApiController controller, string error)
         {
-            return new ResultInvalid(controller.Request, error);
+            return Result.Failure(new Error("", error), controller.Request);
         }
 
         public static Result ResultInvalid(this ApiController controller, ModelStateDictionary modelState)
         {
-            return new ResultInvalid(controller.Request, modelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList());
-        }
-
-        public static Result ResultUnexpected(this ApiController controller, string error)
-        {
-            return new ResultError(controller.Request, error);
+            return Result.Failure(modelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList(), controller.Request);
         }
 
         public static bool Validate<T>(this ApiController controller, T model, out Result resultinvalid)
