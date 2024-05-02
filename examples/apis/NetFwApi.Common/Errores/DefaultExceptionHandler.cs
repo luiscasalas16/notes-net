@@ -13,7 +13,7 @@ namespace NetFwApi.Common.Errores
         {
             if (context.Exception is ValidationException errorValidacion)
             {
-                var result = new ResultClientError(new List<Error>() { new Error("", errorValidacion.Message) });
+                var result = new ResultClientError(new List<ResultError>() { new ResultError("", errorValidacion.Message) });
 
                 context.Result = new Result<ResultClientError>(result.Status, result, context.Request);
             }

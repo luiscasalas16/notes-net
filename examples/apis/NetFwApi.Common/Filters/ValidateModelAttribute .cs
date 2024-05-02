@@ -14,7 +14,7 @@ namespace NetFwApi.Filters
         {
             if (!actionContext.ModelState.IsValid)
             {
-                var result = Result.Failure(actionContext.ModelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList(), actionContext.Request);
+                var result = Result.Failure(actionContext.ModelState.Values.SelectMany(m => m.Errors).Select(e => new ResultError("", e.ErrorMessage)).ToList(), actionContext.Request);
 
                 actionContext.Response = result.ExecuteAsync(CancellationToken.None).Result;
             }

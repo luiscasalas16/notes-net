@@ -23,12 +23,12 @@ namespace NetFwApi.Common.Results
         public bool IsClientError => Code == ClientErrorCode;
         public bool IsServerError => Code == ServerErrorCode;
 
-        public List<Error> Errors { get; }
+        public List<ResultError> Errors { get; }
 
         protected internal Result(int code, HttpRequestMessage request)
-            : this(code, new List<Error>(), request) { }
+            : this(code, new List<ResultError>(), request) { }
 
-        protected internal Result(int code, List<Error> errors, HttpRequestMessage request)
+        protected internal Result(int code, List<ResultError> errors, HttpRequestMessage request)
         {
             Code = code;
             Errors = errors;
@@ -43,21 +43,21 @@ namespace NetFwApi.Common.Results
 
         public static Task<Result<TValue>> SuccessAsync<TValue>(TValue data, HttpRequestMessage request) => Task.FromResult(Success(data, request));
 
-        public static Result Failure(Error error, HttpRequestMessage request) => new Result(ClientErrorCode, new List<Error>() { error }, request);
+        public static Result Failure(ResultError error, HttpRequestMessage request) => new Result(ClientErrorCode, new List<ResultError>() { error }, request);
 
-        public static Result<TValue> Failure<TValue>(Error error, HttpRequestMessage request) => new Result<TValue>(ClientErrorCode, new List<Error>() { error }, request);
+        public static Result<TValue> Failure<TValue>(ResultError error, HttpRequestMessage request) => new Result<TValue>(ClientErrorCode, new List<ResultError>() { error }, request);
 
-        public static Result Failure(List<Error> errors, HttpRequestMessage request) => new Result(ClientErrorCode, errors, request);
+        public static Result Failure(List<ResultError> errors, HttpRequestMessage request) => new Result(ClientErrorCode, errors, request);
 
-        public static Result<TValue> Failure<TValue>(List<Error> errors, HttpRequestMessage request) => new Result<TValue>(ClientErrorCode, errors, request);
+        public static Result<TValue> Failure<TValue>(List<ResultError> errors, HttpRequestMessage request) => new Result<TValue>(ClientErrorCode, errors, request);
 
-        public static Task<Result> FailureAsync(Error error, HttpRequestMessage request) => Task.FromResult(Failure(error, request));
+        public static Task<Result> FailureAsync(ResultError error, HttpRequestMessage request) => Task.FromResult(Failure(error, request));
 
-        public static Task<Result<TValue>> FailureAsync<TValue>(Error error, HttpRequestMessage request) => Task.FromResult(Failure<TValue>(error, request));
+        public static Task<Result<TValue>> FailureAsync<TValue>(ResultError error, HttpRequestMessage request) => Task.FromResult(Failure<TValue>(error, request));
 
-        public static Task<Result> FailureAsync(List<Error> error, HttpRequestMessage request) => Task.FromResult(Failure(error, request));
+        public static Task<Result> FailureAsync(List<ResultError> error, HttpRequestMessage request) => Task.FromResult(Failure(error, request));
 
-        public static Task<Result<TValue>> FailureAsync<TValue>(List<Error> error, HttpRequestMessage request) => Task.FromResult(Failure<TValue>(error, request));
+        public static Task<Result<TValue>> FailureAsync<TValue>(List<ResultError> error, HttpRequestMessage request) => Task.FromResult(Failure<TValue>(error, request));
 
         public static Result<TDestination> Convert<TSource, TDestination>(Result<TSource> result, HttpRequestMessage request)
         {
@@ -79,15 +79,15 @@ namespace NetFwApi.Common.Results
         public TValue Value { get; }
 
         protected internal Result(int code, HttpRequestMessage request)
-            : this(code, new List<Error>(), request) { }
+            : this(code, new List<ResultError>(), request) { }
 
-        protected internal Result(int code, List<Error> errors, HttpRequestMessage request)
+        protected internal Result(int code, List<ResultError> errors, HttpRequestMessage request)
             : this(code, default, errors, request) { }
 
         protected internal Result(int code, TValue value, HttpRequestMessage request)
-            : this(code, value, new List<Error>(), request) { }
+            : this(code, value, new List<ResultError>(), request) { }
 
-        protected internal Result(int code, TValue value, List<Error> errors, HttpRequestMessage request)
+        protected internal Result(int code, TValue value, List<ResultError> errors, HttpRequestMessage request)
             : base(code, errors, request)
         {
             Value = value;

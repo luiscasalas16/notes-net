@@ -13,9 +13,9 @@ namespace NetApi.Common.Results
 
         [JsonPropertyName("errors")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public List<Error>? Errors { get; set; }
+        public List<ResultError>? Errors { get; set; }
 
-        public ResultClientError(List<Error>? errors)
+        public ResultClientError(List<ResultError>? errors)
         {
             Title = Result.ClientErrorTitle;
             Status = Result.ClientErrorCode;
@@ -25,6 +25,6 @@ namespace NetApi.Common.Results
         public ResultClientError()
             : this([]) { }
 
-        public string ErrorsText => Error.ConvertToString(Errors);
+        public string ErrorsText => ResultError.ConvertToString(Errors);
     }
 }

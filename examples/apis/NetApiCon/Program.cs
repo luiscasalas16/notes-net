@@ -22,7 +22,7 @@ namespace NetApiCon
                     options.SuppressModelStateInvalidFilter = false;
                     options.InvalidModelStateResponseFactory = context =>
                     {
-                        var result = new ResultClientError(context.ModelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList());
+                        var result = new ResultClientError(context.ModelState.Values.SelectMany(m => m.Errors).Select(e => new ResultError("", e.ErrorMessage)).ToList());
 
                         return new JsonResult(result) { StatusCode = result.Status };
                     };

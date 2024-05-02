@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace NetFwApi.Common.Results
 {
-    public class Error
+    public class ResultError
     {
         [JsonProperty("property", NullValueHandling = NullValueHandling.Ignore)]
         public string Property { get; set; }
@@ -15,17 +15,17 @@ namespace NetFwApi.Common.Results
         [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
         public string Message { get; set; }
 
-        public Error(string property, string code, string message)
+        public ResultError(string property, string code, string message)
         {
             Property = property;
             Code = code;
             Message = message;
         }
 
-        public Error(string code, string message)
+        public ResultError(string code, string message)
             : this(null, code, message) { }
 
-        public Error()
+        public ResultError()
             : this(null, null, null) { }
 
         public override string ToString()
@@ -46,8 +46,8 @@ namespace NetFwApi.Common.Results
             }
         }
 
-        public static string ConvertToString(Error error) => error != null ? error.ToString() : string.Empty;
+        public static string ConvertToString(ResultError error) => error != null ? error.ToString() : string.Empty;
 
-        public static string ConvertToString(List<Error> errors) => errors != null ? string.Join(" - ", errors.Select(t => t.ToString())) : string.Empty;
+        public static string ConvertToString(List<ResultError> errors) => errors != null ? string.Join(" - ", errors.Select(t => t.ToString())) : string.Empty;
     }
 }

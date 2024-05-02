@@ -2,7 +2,7 @@
 
 namespace NetApi.Common.Results
 {
-    public class Error
+    public class ResultError
     {
         [JsonPropertyName("property")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -16,17 +16,17 @@ namespace NetApi.Common.Results
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Message { get; set; }
 
-        public Error(string property, string code, string message)
+        public ResultError(string property, string code, string message)
         {
             Property = property;
             Code = code;
             Message = message;
         }
 
-        public Error(string code, string message)
+        public ResultError(string code, string message)
             : this(null!, code, message) { }
 
-        public Error()
+        public ResultError()
             : this(null!, null!, null!) { }
 
         public override string ToString()
@@ -47,8 +47,8 @@ namespace NetApi.Common.Results
             }
         }
 
-        public static string ConvertToString(Error? error) => error != null ? error.ToString() : string.Empty;
+        public static string ConvertToString(ResultError? error) => error != null ? error.ToString() : string.Empty;
 
-        public static string ConvertToString(List<Error>? errors) => errors != null ? string.Join(" - ", errors.Select(t => t.ToString())) : string.Empty;
+        public static string ConvertToString(List<ResultError>? errors) => errors != null ? string.Join(" - ", errors.Select(t => t.ToString())) : string.Empty;
     }
 }

@@ -12,9 +12,9 @@ namespace NetFwApi.Common.Results
         public int Status { get; }
 
         [JsonProperty("errors", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Error> Errors { get; set; }
+        public List<ResultError> Errors { get; set; }
 
-        public ResultClientError(List<Error> errors)
+        public ResultClientError(List<ResultError> errors)
         {
             Title = Result.ClientErrorTitle;
             Status = Result.ClientErrorCode;
@@ -22,8 +22,8 @@ namespace NetFwApi.Common.Results
         }
 
         public ResultClientError()
-            : this(new List<Error>()) { }
+            : this(new List<ResultError>()) { }
 
-        public string ErrorsText => Error.ConvertToString(Errors);
+        public string ErrorsText => ResultError.ConvertToString(Errors);
     }
 }

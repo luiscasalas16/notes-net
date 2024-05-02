@@ -41,7 +41,7 @@ namespace NetFwApi.Controllers
 
         private Result GetResult(string id)
         {
-            return this.ResultValid(new { OutputMessage = $"{id} - {Helpers.GetDateTime()}" });
+            return this.ResultSuccess(new { OutputMessage = $"{id} - {Helpers.GetDateTime()}" });
         }
 
         [HttpPost]
@@ -79,7 +79,7 @@ namespace NetFwApi.Controllers
             if (this.Validate(parameters, out Result resultado))
                 return resultado;
 
-            return this.ResultValid(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}" });
+            return this.ResultSuccess(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}" });
         }
     }
 }

@@ -19,7 +19,7 @@ namespace NetApi.Common.Errores
 
             if (context.Error is ValidationException errorValidacion)
             {
-                var result = new ResultClientError([new Error("", errorValidacion.Message)]);
+                var result = new ResultClientError([new ResultError("", errorValidacion.Message)]);
 
                 return new JsonResult(result) { StatusCode = result.Status };
             }

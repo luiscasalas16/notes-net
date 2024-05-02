@@ -16,7 +16,7 @@ namespace NetFwApi.Controllers
         [HttpGet]
         public Result Get2()
         {
-            return this.ResultValid(TestTypesDto.Generate());
+            return this.ResultSuccess(TestTypesDto.Generate());
         }
     }
 }

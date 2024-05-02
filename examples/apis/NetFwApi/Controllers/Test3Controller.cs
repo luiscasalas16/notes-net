@@ -17,7 +17,7 @@ namespace NetFwApi.Controllers
                 .RuleFor(o => o.LastName, f => f.Name.LastName())
                 .RuleFor(o => o.Email, f => f.Internet.Email());
 
-            return this.ResultValid(result.Generate(2));
+            return this.ResultSuccess(result.Generate(2));
         }
 
         public Result Get(int id)
@@ -28,7 +28,7 @@ namespace NetFwApi.Controllers
                 .RuleFor(o => o.LastName, f => f.Name.LastName())
                 .RuleFor(o => o.Email, f => f.Internet.Email());
 
-            return this.ResultValid(result.Generate(1)[0]);
+            return this.ResultSuccess(result.Generate(1)[0]);
         }
 
         public Result Post(TestEntityDto value)
@@ -39,7 +39,7 @@ namespace NetFwApi.Controllers
 
             value.Id = new Faker().Random.Int(1, 100);
 
-            return this.ResultValid(value);
+            return this.ResultSuccess(value);
         }
 
         public Result Put(int id, TestEntityDto value)
@@ -49,14 +49,14 @@ namespace NetFwApi.Controllers
             Assert(value.LastName == "World");
             Assert(value.Email == "hello@world.com");
 
-            return this.ResultValid();
+            return this.ResultSuccess();
         }
 
         public Result Delete(int id)
         {
             Assert(id == 1);
 
-            return this.ResultValid();
+            return this.ResultSuccess();
         }
 
         private void Assert(bool expression)

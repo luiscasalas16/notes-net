@@ -15,7 +15,7 @@ namespace NetApi.Common.Extensions
             }
 
             if (!controller.ModelState.IsValid)
-                resultinvalid = Result.Failure(controller.ModelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList());
+                resultinvalid = Result.Failure(controller.ModelState.Values.SelectMany(m => m.Errors).Select(e => new ResultError("", e.ErrorMessage)).ToList());
             else
                 resultinvalid = null!;
 

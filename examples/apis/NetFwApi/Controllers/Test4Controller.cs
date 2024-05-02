@@ -23,7 +23,7 @@ namespace NetFwApi.Controllers
             Assert(value.LastName == "World");
             Assert(value.Email == "hello@world.com");
 
-            return this.ResultValid();
+            return this.ResultSuccess();
         }
 
         private void Assert(bool expression)

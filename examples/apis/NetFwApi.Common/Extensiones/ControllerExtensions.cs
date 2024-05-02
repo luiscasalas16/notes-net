@@ -8,24 +8,24 @@ namespace NetFwApi.Common.Extensions
 {
     public static class ControllerExtensions
     {
-        public static Result ResultValid(this ApiController controller)
+        public static Result ResultSuccess(this ApiController controller)
         {
             return Result.Success(controller.Request);
         }
 
-        public static Result ResultValid<TValue>(this ApiController controller, TValue data)
+        public static Result ResultSuccess<TValue>(this ApiController controller, TValue data)
         {
             return Result.Success(data, controller.Request);
         }
 
-        public static Result ResultInvalid(this ApiController controller, string error)
+        public static Result ResultFailure(this ApiController controller, string error)
         {
-            return Result.Failure(new Error("", error), controller.Request);
+            return Result.Failure(new ResultError("", error), controller.Request);
         }
 
-        public static Result ResultInvalid(this ApiController controller, ModelStateDictionary modelState)
+        public static Result ResultFailure(this ApiController controller, ModelStateDictionary modelState)
         {
-            return Result.Failure(modelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList(), controller.Request);
+            return Result.Failure(modelState.Values.SelectMany(m => m.Errors).Select(e => new ResultError("", e.ErrorMessage)).ToList(), controller.Request);
         }
 
         public static bool Validate<T>(this ApiController controller, T model, out Result resultinvalid)
@@ -38,7 +38,7 @@ namespace NetFwApi.Common.Extensions
             }
 
             if (!controller.ModelState.IsValid)
-                resultinvalid = controller.ResultInvalid(controller.ModelState);
+                resultinvalid = controller.ResultFailure(controller.ModelState);
             else
                 resultinvalid = null;
 

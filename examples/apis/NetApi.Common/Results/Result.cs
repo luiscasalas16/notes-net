@@ -19,12 +19,12 @@ namespace NetApi.Common.Results
         public bool IsClientError => Code == ClientErrorCode;
         public bool IsServerError => Code == ServerErrorCode;
 
-        public List<Error> Errors { get; }
+        public List<ResultError> Errors { get; }
 
         protected internal Result(int code)
             : this(code, []) { }
 
-        protected internal Result(int code, List<Error> errors)
+        protected internal Result(int code, List<ResultError> errors)
         {
             Code = code;
             Errors = errors;
@@ -38,21 +38,21 @@ namespace NetApi.Common.Results
 
         public static Task<Result<TValue>> SuccessAsync<TValue>(TValue data) => Task.FromResult(Success(data));
 
-        public static Result Failure(Error error) => new(ClientErrorCode, [error]);
+        public static Result Failure(ResultError error) => new(ClientErrorCode, [error]);
 
-        public static Result<TValue> Failure<TValue>(Error error) => new(ClientErrorCode, [error]);
+        public static Result<TValue> Failure<TValue>(ResultError error) => new(ClientErrorCode, [error]);
 
-        public static Result Failure(List<Error> errors) => new(ClientErrorCode, errors);
+        public static Result Failure(List<ResultError> errors) => new(ClientErrorCode, errors);
 
-        public static Result<TValue> Failure<TValue>(List<Error> errors) => new(ClientErrorCode, errors);
+        public static Result<TValue> Failure<TValue>(List<ResultError> errors) => new(ClientErrorCode, errors);
 
-        public static Task<Result> FailureAsync(Error error) => Task.FromResult(Failure(error));
+        public static Task<Result> FailureAsync(ResultError error) => Task.FromResult(Failure(error));
 
-        public static Task<Result<TValue>> FailureAsync<TValue>(Error error) => Task.FromResult(Failure<TValue>(error));
+        public static Task<Result<TValue>> FailureAsync<TValue>(ResultError error) => Task.FromResult(Failure<TValue>(error));
 
-        public static Task<Result> FailureAsync(List<Error> error) => Task.FromResult(Failure(error));
+        public static Task<Result> FailureAsync(List<ResultError> error) => Task.FromResult(Failure(error));
 
-        public static Task<Result<TValue>> FailureAsync<TValue>(List<Error> error) => Task.FromResult(Failure<TValue>(error));
+        public static Task<Result<TValue>> FailureAsync<TValue>(List<ResultError> error) => Task.FromResult(Failure<TValue>(error));
 
         #region IResult
 
@@ -98,13 +98,13 @@ namespace NetApi.Common.Results
         protected internal Result(int code)
             : this(code, []) { }
 
-        protected internal Result(int code, List<Error> errors)
+        protected internal Result(int code, List<ResultError> errors)
             : this(code, default, errors) { }
 
         protected internal Result(int code, TValue? value)
             : this(code, value, []) { }
 
-        protected internal Result(int code, TValue? value, List<Error> errors)
+        protected internal Result(int code, TValue? value, List<ResultError> errors)
             : base(code, errors)
         {
             Value = value;
