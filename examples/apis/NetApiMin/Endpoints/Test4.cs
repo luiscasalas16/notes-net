@@ -1,4 +1,5 @@
-﻿using NetApi.Common.Results;
+﻿using NetApi.Common.Errors;
+using NetApi.Common.Results;
 using NetApiMin.Models;
 
 namespace NetApiMin.Endpoints
@@ -8,7 +9,7 @@ namespace NetApiMin.Endpoints
         public static void MapEndpoints(WebApplication app)
         {
             app.MapGet("/Test4/ErrorGet", () => ErrorGet());
-            app.MapPost("/Test4/ErrorValidation", (TestEntityDto value) => ErrorValidation(value));
+            app.MapPost("/Test4/ErrorValidation", (TestEntityDto value) => ErrorValidation(value)).Validate<TestEntityDto>();
         }
 
         public static Result ErrorGet()

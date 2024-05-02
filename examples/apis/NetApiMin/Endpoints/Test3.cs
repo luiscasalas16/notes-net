@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using NetApi.Common.Errors;
 using NetApi.Common.Results;
 using NetApiMin.Models;
 
@@ -10,8 +11,8 @@ namespace NetApiMin.Endpoints
         {
             app.MapGet("/Test3", () => Get());
             app.MapGet("/Test3/{id}", (int id) => Get(id));
-            app.MapPost("/Test3", (TestEntityDto value) => Post(value));
-            app.MapPut("/Test3/{id}", (int id, TestEntityDto value) => Put(id, value));
+            app.MapPost("/Test3", (TestEntityDto value) => Post(value)).Validate<TestEntityDto>();
+            app.MapPut("/Test3/{id}", (int id, TestEntityDto value) => Put(id, value)).Validate<TestEntityDto>();
             app.MapDelete("/Test3/{id}", (int id) => Delete(id));
         }
 
