@@ -18,7 +18,7 @@ namespace NetApiCon.Controllers
                 .RuleFor(o => o.LastName, f => f.Name.LastName())
                 .RuleFor(o => o.Email, f => f.Internet.Email());
 
-            return this.ResultValid(result.Generate(2));
+            return Result.Success(result.Generate(2));
         }
 
         [HttpGet("{id}")]
@@ -30,7 +30,7 @@ namespace NetApiCon.Controllers
                 .RuleFor(o => o.LastName, f => f.Name.LastName())
                 .RuleFor(o => o.Email, f => f.Internet.Email());
 
-            return this.ResultValid(result.Generate(1)[0]);
+            return Result.Success(result.Generate(1)[0]);
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace NetApiCon.Controllers
 
             value.Id = new Faker().Random.Int(1, 100);
 
-            return this.ResultValid(value);
+            return Result.Success(value);
         }
 
         [HttpPut("{id}")]
@@ -53,7 +53,7 @@ namespace NetApiCon.Controllers
             Assert(value.LastName == "World");
             Assert(value.Email == "hello@world.com");
 
-            return this.ResultValid();
+            return Result.Success();
         }
 
         [HttpDelete("{id}")]
@@ -61,7 +61,7 @@ namespace NetApiCon.Controllers
         {
             Assert(id == 1);
 
-            return this.ResultValid();
+            return Result.Success();
         }
 
         private void Assert(bool expression)

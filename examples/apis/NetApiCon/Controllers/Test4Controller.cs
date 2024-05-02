@@ -23,7 +23,7 @@ namespace NetApiCon.Controllers
             Assert(value.LastName == "World");
             Assert(value.Email == "hello@world.com");
 
-            return this.ResultValid();
+            return Result.Success();
         }
 
         private void Assert(bool expression)
