@@ -1,6 +1,5 @@
 ﻿using Bogus;
 using Microsoft.AspNetCore.Mvc;
-using NetApi.Common.Extensions;
 using NetApi.Common.Results;
 using NetApiCon.Models;
 

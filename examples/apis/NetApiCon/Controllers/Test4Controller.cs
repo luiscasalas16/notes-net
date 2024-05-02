@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using NetApi.Common.Extensions;
+﻿using Microsoft.AspNetCore.Mvc;
 using NetApi.Common.Results;
 using NetApiCon.Models;
 

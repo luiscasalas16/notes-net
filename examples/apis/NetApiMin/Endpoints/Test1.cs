@@ -79,9 +79,6 @@ namespace NetApiMin.Endpoints
 
         private static Result PostResult(TestRequestDto parameters, string id)
         {
-            //if (this.Validate(parameters, out Result resultado))
-            //    return resultado;
-
             return Result.Success(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage} - {id} - {Helpers.GetDateTime()}" });
         }
     }

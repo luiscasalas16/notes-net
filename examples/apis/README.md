@@ -53,10 +53,7 @@ Cada API implementa los siguientes ejemplos y pruebas:
 - Test 5: Pruebas de serialización de objeto con los tipos de datos más comunes, para visualizar el formato de serialización en Json.
 
 TODO:
-- Implementar NetApiMin.
-- Implementar pruebas de NetApiMin.
-- Implementar validaciones fluidas.
-- Validate PostResult en NetApiMin
+- Implementar validaciones fluidas. https://dev.to/isaacojeda/net-7-minimal-apis-y-fluentvalidation-18a9
 - Correguir problema de serialización enum en prueba de tipos.
 - Mejorar valores de prueba de tipos. 
 - Archivos.

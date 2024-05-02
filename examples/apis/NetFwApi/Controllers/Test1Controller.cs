@@ -76,9 +76,6 @@ namespace NetFwApi.Controllers
 
         private Result PostResult(TestRequestDto parameters, string id)
         {
-            if (this.Validate(parameters, out Result resultado))
-                return resultado;
-
             return this.ResultSuccess(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage ?? ""} - {id} - {Helpers.GetDateTime()}" });
         }
     }

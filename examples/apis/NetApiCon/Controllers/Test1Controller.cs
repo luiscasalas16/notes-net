@@ -1,7 +1,6 @@
 using Api.Tests.Common;
 using Api.Tests.Common.Models;
 using Microsoft.AspNetCore.Mvc;
-using NetApi.Common.Extensions;
 using NetApi.Common.Results;
 
 namespace NetApiCon.Controllers
@@ -76,9 +75,6 @@ namespace NetApiCon.Controllers
 
         private Result PostResult(TestRequestDto parameters, string id)
         {
-            if (this.Validate(parameters, out Result resultado))
-                return resultado;
-
             return Result.Success(new TestResponseDto() { OutputMessage = $"{parameters.InputMessage} - {id} - {Helpers.GetDateTime()}" });
         }
     }

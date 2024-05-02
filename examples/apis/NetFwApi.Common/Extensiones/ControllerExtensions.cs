@@ -27,22 +27,5 @@ namespace NetFwApi.Common.Extensions
         {
             return Result.Failure(modelState.Values.SelectMany(m => m.Errors).Select(e => new ResultError("", e.ErrorMessage)).ToList(), controller.Request);
         }
-
-        public static bool Validate<T>(this ApiController controller, T model, out Result resultinvalid)
-        {
-            if (model == null)
-            {
-                model = (T)Activator.CreateInstance(typeof(T), new object[] { });
-
-                controller.Validate(model);
-            }
-
-            if (!controller.ModelState.IsValid)
-                resultinvalid = controller.ResultFailure(controller.ModelState);
-            else
-                resultinvalid = null;
-
-            return resultinvalid != null;
-        }
     }
 }
