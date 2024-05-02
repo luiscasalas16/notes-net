@@ -4,9 +4,7 @@
     {
         public static void Map(IEndpointRouteBuilder app)
         {
-            app.MapGet("/", () => new HomeMessage { Message = Global.Helpers.GetDateTime() })
-                .WithName("Get")
-                .WithOpenApi();
+            app.MapGet("/", () => new HomeMessage { Message = Global.Helpers.GetDateTime() }).WithName("Get").WithOpenApi();
         }
     }
 

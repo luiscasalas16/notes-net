@@ -9,11 +9,7 @@ namespace NetFwBaseWebApi
         {
             GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
 
-            GlobalConfiguration.Configuration.Routes.MapHttpRoute(
-                name: "Default",
-                routeTemplate: "{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional, controller = "Home" }
-            );
+            GlobalConfiguration.Configuration.Routes.MapHttpRoute(name: "Default", routeTemplate: "{controller}/{id}", defaults: new { id = RouteParameter.Optional, controller = "Home" });
 
             // Enable Swagger
             GlobalConfiguration
