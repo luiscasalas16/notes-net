@@ -10,7 +10,6 @@ namespace NetApiCon.Controllers
     public class Test4Controller : ControllerBase
     {
         [HttpGet]
-        [DebuggerStepThrough]
         public Result ErrorGet()
         {
             throw new ApplicationException("application error");

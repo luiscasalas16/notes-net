@@ -56,6 +56,7 @@ TODO:
 - Implementar NetApiMin.
 - Implementar pruebas de NetApiMin.
 - Implementar validaciones fluidas.
+- Validate PostResult en NetApiMin
 - Correguir problema de serialización enum en prueba de tipos.
 - Mejorar valores de prueba de tipos. 
 - Archivos.
