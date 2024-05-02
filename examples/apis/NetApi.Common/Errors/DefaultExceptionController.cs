@@ -19,15 +19,21 @@ namespace NetApi.Common.Errores
 
             if (context.Error is ValidationException errorValidacion)
             {
-                return new ResultInvalid(errorValidacion.Message);
+                var result = new ResultClientError([new Error("", errorValidacion.Message)]);
+
+                return new JsonResult(result) { StatusCode = result.Status };
             }
             else if (context.Error is ConfigurationException errorConfiguracion)
             {
-                return new ResultError(errorConfiguracion.Message);
+                var result = new ResultServerError(errorConfiguracion.Message);
+
+                return new JsonResult(result) { StatusCode = result.Status };
             }
             else
             {
-                return new ResultError("internal api error", context.Error.Message);
+                var result = new ResultServerError(context.Error);
+
+                return new JsonResult(result) { StatusCode = result.Status };
             }
         }
     }

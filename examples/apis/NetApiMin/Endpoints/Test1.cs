@@ -9,7 +9,7 @@ namespace NetApiMin.Endpoints
     {
         public static void MapEndpoints(WebApplication app)
         {
-            app.MapGet("/Test1", () => Get());
+            app.MapGet("/Test1/Get", () => Get());
             app.MapGet("/Test1/GetA", () => GetA());
             app.MapGet("/Test1/GetB", () => GetB());
             app.MapGet("/Test1/CGet", () => GetC());
@@ -31,13 +31,11 @@ namespace NetApiMin.Endpoints
             return GetResult("B");
         }
 
-        [HttpGet, ActionName("CGet")]
         public static Result GetC()
         {
             return GetResult("C");
         }
 
-        [HttpGet, ActionName("DGet")]
         public static Result GetD()
         {
             return GetResult("D");
@@ -45,7 +43,7 @@ namespace NetApiMin.Endpoints
 
         private static Result GetResult(string id)
         {
-            return new ResultValid(new TestResponseDto { OutputMessage = $"{id} - {Helpers.GetDateTime()}" });
+            return Result.Success(new TestResponseDto { OutputMessage = $"{id} - {Helpers.GetDateTime()}" });
         }
     }
 }

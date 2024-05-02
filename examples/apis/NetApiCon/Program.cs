@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using NetApi.Common.Results;
 using Newtonsoft.Json.Converters;
@@ -21,7 +22,9 @@ namespace NetApiCon
                     options.SuppressModelStateInvalidFilter = false;
                     options.InvalidModelStateResponseFactory = context =>
                     {
-                        return new ResultInvalid(context.ModelState);
+                        var result = new ResultClientError(context.ModelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList());
+
+                        return new JsonResult(result) { StatusCode = result.Status };
                     };
                 })
                 // Sets Newtonsoft as default serializer and sets the default serializer settings.

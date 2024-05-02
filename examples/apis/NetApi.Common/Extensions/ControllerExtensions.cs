@@ -8,27 +8,22 @@ namespace NetApi.Common.Extensions
     {
         public static Result ResultValid(this ControllerBase controller)
         {
-            return new ResultValid(null!);
+            return Result.Success();
         }
 
         public static Result ResultValid(this ControllerBase controller, object data)
         {
-            return new ResultValid(data);
+            return Result.Success(data);
         }
 
         public static Result ResultInvalid(this ControllerBase controller, string error)
         {
-            return new ResultInvalid(error);
+            return Result.Failure(new Error("", error));
         }
 
         public static Result ResultInvalid(this ControllerBase controller, ModelStateDictionary modelState)
         {
-            return new ResultInvalid(modelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage).ToList());
-        }
-
-        public static Result ResultUnexpected(this ControllerBase controller, string error)
-        {
-            return new ResultError(error);
+            return Result.Failure(modelState.Values.SelectMany(m => m.Errors).Select(e => new Error("", e.ErrorMessage)).ToList());
         }
 
         public static bool Validate<T>(this ControllerBase controller, T model, out Result resultinvalid)
