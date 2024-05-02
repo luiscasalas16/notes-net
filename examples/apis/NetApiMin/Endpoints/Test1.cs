@@ -1,6 +1,5 @@
 ﻿using Api.Tests.Common;
 using Api.Tests.Common.Models;
-using Microsoft.AspNetCore.Mvc;
 using NetApi.Common.Results;
 
 namespace NetApiMin.Endpoints
