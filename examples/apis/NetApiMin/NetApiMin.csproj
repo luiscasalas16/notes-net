@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Api.Tests.Common\Api.Tests.Common.csproj" />
+    <ProjectReference Include="..\NetApi.Common\NetApi.Common.csproj" />
+  </ItemGroup>
+
 </Project>

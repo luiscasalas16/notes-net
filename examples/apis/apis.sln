@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Tests.Common", "Api.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFwApi.Tests", "NetFwApi.Tests\NetFwApi.Tests.csproj", "{CBCF41ED-A35B-480F-A616-17C165AC9A10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetApiMin.Tests", "NetApiMin.Tests\NetApiMin.Tests.csproj", "{29983801-846C-48DE-BFBE-09E842591050}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{CBCF41ED-A35B-480F-A616-17C165AC9A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCF41ED-A35B-480F-A616-17C165AC9A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCF41ED-A35B-480F-A616-17C165AC9A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29983801-846C-48DE-BFBE-09E842591050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29983801-846C-48DE-BFBE-09E842591050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29983801-846C-48DE-BFBE-09E842591050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29983801-846C-48DE-BFBE-09E842591050}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{0566E855-1B3D-45F9-9DE0-E6E2BE1FCF40} = {9605363E-7F57-4F8C-A6AF-B6943C403241}
 		{60F2D252-117D-42FA-8FC5-60142BCF212B} = {2AF2E3D9-C75E-4539-8D70-E20267028619}
 		{CBCF41ED-A35B-480F-A616-17C165AC9A10} = {F455402B-AB51-4589-8BDD-4C54E979827C}
+		{29983801-846C-48DE-BFBE-09E842591050} = {9605363E-7F57-4F8C-A6AF-B6943C403241}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CE83795-3E10-4C14-9F53-A10014B6374B}
