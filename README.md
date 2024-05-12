@@ -11,21 +11,35 @@ Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
 ## Comandos
 
-- .NET CLI
+### .NET
+
+- NET CLI
   - <https://learn.microsoft.com/en-us/dotnet/core/tools>
   - <https://code-maze.com/dotnet-project-templates-creation/>
 
 ```powershell
-#plantillas de proyectos
-
-#console
+#crear proyecto console
 dotnet new console --output NetConsole --name XYZ
 
-#worker
+#crear proyecto worker
 dotnet new worker --output NetWorker --name XYZ
 
-#empty solution
+#crear empty solution
 dotnet new sln --output . --name XYZ
+```
+
+### -Net Framework
+
+- MSBuild
+  - <https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/msbuild/msbuild-command-line-reference>
+
+```powershell
+#restaurar solución
+MsBuild.exe -restore -p:RestorePackagesConfig=true /clp:ErrorsOnly ./COL/XYZ.sln
+#compilar release
+MsBuild.exe /t:Rebuild /p:Configuration=Release /clp:ErrorsOnly ./COL/XYZ.sln
+#compilar debug
+MsBuild.exe /t:Rebuild /p:Configuration=Debug /clp:ErrorsOnly ./COL/XYZ.sln
 ```
 
 ## TODO
