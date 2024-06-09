@@ -11,6 +11,10 @@
   - <https://code-maze.com/efcore-execute-stored-procedures/>
   - <https://www.learnentityframeworkcore.com/>
 
+## Paquetes
+
+- [EFCore.NamingConventions](https://github.com/efcore/EFCore.NamingConventions/blob/main/README.md)
+
 ## TODO
 
 - <https://code-maze.com/asp-net-core-web-api-with-ef-core-db-first-approach>
