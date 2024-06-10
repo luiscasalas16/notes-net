@@ -15,6 +15,7 @@ Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
 - NET CLI
   - <https://learn.microsoft.com/en-us/dotnet/core/tools>
+  - <https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new>
   - <https://code-maze.com/dotnet-project-templates-creation/>
 
 ```powershell
@@ -26,6 +27,9 @@ dotnet new worker --output NetWorker --name XYZ
 
 #crear empty solution
 dotnet new sln --output . --name XYZ
+
+#crear gitignore
+dotnet new gitignore
 ```
 
 ### -Net Framework
