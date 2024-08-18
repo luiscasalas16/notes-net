@@ -15,7 +15,7 @@ public class WebhookController(OnboardingDbContext dbContext) : Controller
         var payload = webhookEvent.Payload;
         var taskPayload = payload.TaskPayload;
         var employee = taskPayload.Employee;
-        
+
         var task = new OnboardingTask
         {
             ProcessId = payload.WorkflowInstanceId,
@@ -24,7 +24,7 @@ public class WebhookController(OnboardingDbContext dbContext) : Controller
             Description = taskPayload.Description,
             EmployeeEmail = employee.Email,
             EmployeeName = employee.Name,
-            CreatedAt = DateTimeOffset.Now
+            CreatedAt = DateTimeOffset.Now,
         };
 
         await dbContext.Tasks.AddAsync(task);

@@ -24,7 +24,7 @@ public class OnboardingTask
     /// The name of the task.
     /// </summary>
     public string Name { get; set; } = default!;
-    
+
     /// <summary>
     /// The task description.
     /// </summary>

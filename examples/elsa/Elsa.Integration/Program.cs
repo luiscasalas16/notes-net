@@ -9,7 +9,9 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContextFactory<OnboardingDbContext>(options => options.UseSqlite("Data Source=onboarding.db"));
+builder.Services.AddDbContextFactory<OnboardingDbContext>(options =>
+    options.UseSqlite("Data Source=onboarding.db")
+);
 builder.Services.AddHostedService<MigrationsHostedService>();
 
 // Configure Elsa API client.
@@ -18,7 +20,10 @@ builder.Services.AddHttpClient<ElsaClient>(httpClient =>
     var url = configuration["Elsa:ServerUrl"]!.TrimEnd('/') + '/';
     var apiKey = configuration["Elsa:ApiKey"]!;
     httpClient.BaseAddress = new Uri(url);
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("ApiKey", apiKey);
+    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+        "ApiKey",
+        apiKey
+    );
 });
 
 var app = builder.Build();
@@ -38,8 +43,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

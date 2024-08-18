@@ -11,9 +11,8 @@ public class RunWorkflowController(IWorkflowRunner workflowRunner) : ControllerB
     [HttpGet]
     public async Task Get()
     {
-        await workflowRunner.RunAsync(new WriteHttpResponse
-        {
-            Content = new("Hello ASP.NET world!")
-        });
+        await workflowRunner.RunAsync(
+            new WriteHttpResponse { Content = new("Hello ASP.NET world!") }
+        );
     }
 }

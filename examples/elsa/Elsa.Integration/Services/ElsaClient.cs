@@ -11,7 +11,11 @@ public class ElsaClient(HttpClient httpClient)
     /// <param name="taskId">The ID of the task to complete.</param>
     /// <param name="result">The result of the task.</param>
     /// <param name="cancellationToken">An optional cancellation token.</param>
-    public async Task ReportTaskCompletedAsync(string taskId, object? result = default, CancellationToken cancellationToken = default)
+    public async Task ReportTaskCompletedAsync(
+        string taskId,
+        object? result = default,
+        CancellationToken cancellationToken = default
+    )
     {
         var url = new Uri($"tasks/{taskId}/complete", UriKind.Relative);
         var request = new { Result = result };

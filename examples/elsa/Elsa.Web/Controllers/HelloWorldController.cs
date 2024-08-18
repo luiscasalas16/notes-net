@@ -20,13 +20,10 @@ public class HelloWorldController(IWorkflowRunner workflowRunner) : ControllerBa
             Activities =
             {
                 new WriteLine("This workflow runs a sequence of steps."),
-                new WriteHttpResponse
-                {
-                    Content = new(message)
-                },
+                new WriteHttpResponse { Content = new(message) },
                 new WriteLine(messageVariable),
-                new WriteLine("This workflow is now complete.")
-            }
+                new WriteLine("This workflow is now complete."),
+            },
         };
 
         await workflowRunner.RunAsync(workflow);

@@ -15,7 +15,8 @@ namespace EmployeeOnboarding.Web.Migrations
                 name: "Tasks",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
+                    Id = table
+                        .Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ExternalId = table.Column<string>(type: "TEXT", nullable: false),
                     ProcessId = table.Column<string>(type: "TEXT", nullable: false),
@@ -25,19 +26,19 @@ namespace EmployeeOnboarding.Web.Migrations
                     EmployeeEmail = table.Column<string>(type: "TEXT", nullable: false),
                     IsCompleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
-                    CompletedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true)
+                    CompletedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tasks", x => x.Id);
-                });
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Tasks");
+            migrationBuilder.DropTable(name: "Tasks");
         }
     }
 }

@@ -20,7 +20,7 @@ public class HttpHelloWorld : WorkflowBase
                 {
                     Path = new("/hello-world"),
                     CanStartWorkflow = true,
-                    QueryStringData = new(queryStringsVariable)
+                    QueryStringData = new(queryStringsVariable),
                 },
                 new SetVariable
                 {
@@ -28,15 +28,14 @@ public class HttpHelloWorld : WorkflowBase
                     Value = new(context =>
                     {
                         var queryStrings = queryStringsVariable.Get(context)!;
-                        var message = queryStrings.TryGetValue("message", out var messageValue) ? messageValue.ToString() : "Hello world of HTTP workflows!";
+                        var message = queryStrings.TryGetValue("message", out var messageValue)
+                            ? messageValue.ToString()
+                            : "Hello world of HTTP workflows!";
                         return message;
-                    })
+                    }),
                 },
-                new WriteHttpResponse
-                {
-                    Content = new(messageVariable)
-                }
-            }
+                new WriteHttpResponse { Content = new(messageVariable) },
+            },
         };
     }
 }

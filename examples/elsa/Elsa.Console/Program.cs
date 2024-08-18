@@ -18,8 +18,8 @@ var activity = new Sequence
     Activities =
     {
         new WriteLine("Hello World!"),
-        new WriteLine("We can do more than a one-liner!")
-    }
+        new WriteLine("We can do more than a one-liner!"),
+    },
 };
 
 // Resolve a workflow runner to execute the activity.
