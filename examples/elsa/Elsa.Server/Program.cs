@@ -41,6 +41,16 @@ builder.Services.AddElsa(elsa =>
             httpOptions.BaseUrl = new Uri("http://localhost:5001")
     );
 
+    // Use email activities.
+    elsa.UseEmail(email =>
+    {
+        email.ConfigureOptions = options =>
+        {
+            options.Host = "localhost";
+            options.Port = 2525;
+        };
+    });
+
     // Use timer activities.
     elsa.UseScheduling();
 
