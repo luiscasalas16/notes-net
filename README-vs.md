@@ -12,7 +12,7 @@
 - [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.VSGitHubCopilot)
 - [CSharpier](https://marketplace.visualstudio.com/items?itemName=csharpier.CSharpier)
 - [Rainbow Braces](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.RainbowBraces)
-
+- [VSColorOutput64](https://marketplace.visualstudio.com/items?itemName=MikeWard-AnnArbor.VSColorOutput64)
 - [xUnit Test Project Template (.NET Framework)](https://marketplace.visualstudio.com/items?itemName=jsakamoto.xUnitTestProjectTemplate)
 - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)
 - [Color Picker](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.ColorPickerTool)
