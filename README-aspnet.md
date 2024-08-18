@@ -1,5 +1,9 @@
 # notes-net / aspnet - ASP.NET
 
+# Authentication
+
+- [Overview](https://learn.microsoft.com/en-us/aspnet/core/security/authentication)
+
 ## TODO
 
 - https://code-maze.com/aspnet-configuration-basic-concepts/
