@@ -1,5 +1,5 @@
-﻿using Bogus;
-using System.Data;
+﻿using System.Data;
+using Bogus;
 
 namespace example_net_excel
 {
@@ -11,30 +11,28 @@ namespace example_net_excel
 
             var userIds = 0;
             var testUsers = new Faker<User>()
-               .StrictMode(true)
-
-               .RuleFor(u => u.UserId, f => userIds++)
-               .RuleFor(u => u.Identification, f => f.Random.Replace("#-####-####"))
-               .RuleFor(u => u.FirstName, f => f.Name.FirstName())
-               .RuleFor(u => u.LastName, f => f.Name.LastName())
-               .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.FirstName, u.LastName))
-               .RuleFor(u => u.Gender, f => f.PickRandom<Gender>());
-            users = testUsers.GenerateBetween(25, 100);
+                .StrictMode(true)
+                .RuleFor(u => u.UserId, f => userIds++)
+                .RuleFor(u => u.Identification, f => f.Random.Replace("#-####-####"))
+                .RuleFor(u => u.FirstName, f => f.Name.FirstName())
+                .RuleFor(u => u.LastName, f => f.Name.LastName())
+                .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.FirstName, u.LastName))
+                .RuleFor(u => u.Gender, f => f.PickRandom<Gender>());
+            users = testUsers.GenerateBetween(3, 3);
 
             var usersIds = users.Select(u => u.UserId).ToList();
 
             var orderIds = 0;
             var testOrders = new Faker<Order>()
-               .StrictMode(true)
-
-               .RuleFor(o => o.UserId, f => f.PickRandom(usersIds))
-               .RuleFor(o => o.OrderId, f => orderIds++)
-               .RuleFor(o => o.Date, f => f.Date.Between(new DateTime(2010, 1, 1), new DateTime(2020, 12, 31)))
-               .RuleFor(o => o.Item, f => f.PickRandom(fruit))
-               .RuleFor(o => o.Quantity, f => f.Random.Number(1, 10))
-               .RuleFor(o => o.UnitPrice, f => Math.Round(f.Random.Double(100d, 1000d), 2))
-               .RuleFor(o => o.TotalPrice, (f, u) => u.Quantity * u.UnitPrice);
-            orders = testOrders.GenerateBetween(250, 1000);
+                .StrictMode(true)
+                .RuleFor(o => o.UserId, f => f.PickRandom(usersIds))
+                .RuleFor(o => o.OrderId, f => orderIds++)
+                .RuleFor(o => o.Date, f => f.Date.Between(new DateTime(2010, 1, 1), new DateTime(2020, 12, 31)))
+                .RuleFor(o => o.Item, f => f.PickRandom(fruit))
+                .RuleFor(o => o.Quantity, f => f.Random.Number(1, 10))
+                .RuleFor(o => o.UnitPrice, f => Math.Round(f.Random.Double(100d, 1000d), 2))
+                .RuleFor(o => o.TotalPrice, (f, u) => u.Quantity * u.UnitPrice);
+            orders = testOrders.GenerateBetween(9, 9);
         }
 
         /// <summary>
@@ -55,15 +53,7 @@ namespace example_net_excel
 
             foreach (var user in users)
             {
-                dataTable.Rows.Add
-                (
-                    user.UserId,
-                    user.Identification,
-                    user.FirstName,
-                    user.LastName,
-                    user.Email,
-                    user.Gender
-                );
+                dataTable.Rows.Add(user.UserId, user.Identification, user.FirstName, user.LastName, user.Email, user.Gender);
             }
 
             return dataTable;
@@ -88,16 +78,7 @@ namespace example_net_excel
 
             foreach (var user in orders)
             {
-                dataTable.Rows.Add
-                (
-                    user.UserId,
-                    user.OrderId,
-                    user.Date,
-                    user.Item,
-                    user.Quantity,
-                    user.UnitPrice,
-                    user.TotalPrice
-                );
+                dataTable.Rows.Add(user.UserId, user.OrderId, user.Date, user.Item, user.Quantity, user.UnitPrice, user.TotalPrice);
             }
 
             return dataTable;
@@ -114,15 +95,17 @@ namespace example_net_excel
 
             foreach (DataRow row in table.Rows)
             {
-                users.Add(new User()
-                {
-                    UserId = Convert.ToInt32(row["UserId"]),
-                    Identification = Convert.ToString(row["Identification"]),
-                    FirstName = Convert.ToString(row["FirstName"]),
-                    LastName = Convert.ToString(row["LastName"]),
-                    Email = Convert.ToString(row["Email"]),
-                    Gender = (Gender)Enum.Parse(typeof(Gender), Convert.ToString(row["Gender"])),
-                });
+                users.Add(
+                    new User()
+                    {
+                        UserId = Convert.ToInt32(row["UserId"]),
+                        Identification = Convert.ToString(row["Identification"]),
+                        FirstName = Convert.ToString(row["FirstName"]),
+                        LastName = Convert.ToString(row["LastName"]),
+                        Email = Convert.ToString(row["Email"]),
+                        Gender = (Gender)Enum.Parse(typeof(Gender), Convert.ToString(row["Gender"])),
+                    }
+                );
             }
 
             return users;
@@ -139,16 +122,18 @@ namespace example_net_excel
 
             foreach (DataRow row in table.Rows)
             {
-                users.Add(new Order()
-                {
-                    UserId = Convert.ToInt32(row["UserId"]),
-                    OrderId = Convert.ToInt32(row["OrderId"]),
-                    Date = Convert.ToDateTime(row["Date"]),
-                    Item = Convert.ToString(row["Item"]),
-                    Quantity = Convert.ToInt32(row["Quantity"]),
-                    UnitPrice = Convert.ToDouble(row["UnitPrice"]),
-                    TotalPrice = Convert.ToDouble(row["TotalPrice"])
-                });
+                users.Add(
+                    new Order()
+                    {
+                        UserId = Convert.ToInt32(row["UserId"]),
+                        OrderId = Convert.ToInt32(row["OrderId"]),
+                        Date = Convert.ToDateTime(row["Date"]),
+                        Item = Convert.ToString(row["Item"]),
+                        Quantity = Convert.ToInt32(row["Quantity"]),
+                        UnitPrice = Convert.ToDouble(row["UnitPrice"]),
+                        TotalPrice = Convert.ToDouble(row["TotalPrice"])
+                    }
+                );
             }
 
             return users;
