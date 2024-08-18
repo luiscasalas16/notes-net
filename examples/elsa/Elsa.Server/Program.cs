@@ -6,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddElsa(elsa =>
 {
+    // Add the Fluent Storage workflow definition provider.
+    elsa.UseFluentStorageProvider();
+
     // Configure Management layer to use EF Core.
     elsa.UseWorkflowManagement(management => management.UseEntityFrameworkCore());
 
