@@ -1,7 +1,6 @@
 using Elsa.EntityFrameworkCore.Modules.Management;
 using Elsa.EntityFrameworkCore.Modules.Runtime;
 using Elsa.Extensions;
-using Elsa.Webhooks.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,16 +43,6 @@ builder.Services.AddElsa(elsa =>
 
     // Use timer activities.
     elsa.UseScheduling();
-
-    // Use email activities.
-    elsa.UseEmail(email =>
-    {
-        email.ConfigureOptions = options =>
-        {
-            options.Host = "localhost";
-            options.Port = 2525;
-        };
-    });
 
     // Register custom activities from the application, if any.
     elsa.AddActivitiesFrom<Program>();
