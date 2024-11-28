@@ -3,10 +3,13 @@
 ## Documentación
 
 - Oficial
+
   - <https://learn.microsoft.com/en-us/ef/core/>
   - <https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging>
   - <https://learn.microsoft.com/en-us/ef/core/saving/transactions>
+
 - Adicionales
+
   - <https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx>
   - <https://code-maze.com/efcore-execute-stored-procedures/>
   - <https://www.learnentityframeworkcore.com/>
