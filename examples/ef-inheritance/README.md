@@ -8,9 +8,9 @@ En Entity Framework, la herencia se refiere a cómo se representan las relacione
 
 Ejemplos de implementación:
 
-- **Tabla por jerarquía (TPH)**: [NetEfInheritanceTpC](../NetEfInheritanceTpH)
-- **Tabla por tipo (TPT)**: [NetEfInheritanceTpC](../NetEfInheritanceTpT)
-- **Tabla por clase concreta (TPC)**: [NetEfInheritanceTpC](../NetEfInheritanceTpC)
+- **Tabla por jerarquía (TPH)**: [NetEfInheritanceTpC](./NetEfInheritanceTpH)
+- **Tabla por tipo (TPT)**: [NetEfInheritanceTpC](./NetEfInheritanceTpT)
+- **Tabla por clase concreta (TPC)**: [NetEfInheritanceTpC](./NetEfInheritanceTpC)
 
 ## Tabla por jerarquía (TPH)
 
