@@ -6,6 +6,12 @@ En Entity Framework, la herencia se refiere a cómo se representan las relacione
 - **Tabla por tipo (TPT)**: cada tipo de entidad en la jerarquía de herencia se almacena en su propia tabla.
 - **Tabla por clase concreta (TPC)**: cada clase de entidad concreta (no abstracta) tiene su propia tabla, sin tabla para clases base abstractas.
 
+Ejemplos de implementación:
+
+- **Tabla por jerarquía (TPH)**: [NetEfInheritanceTpC](../NetEfInheritanceTpH)
+- **Tabla por tipo (TPT)**: [NetEfInheritanceTpC](../NetEfInheritanceTpT)
+- **Tabla por clase concreta (TPC)**: [NetEfInheritanceTpC](../NetEfInheritanceTpC)
+
 ## Tabla por jerarquía (TPH)
 
 - **Características**:
@@ -68,3 +74,6 @@ En Entity Framework, la herencia se refiere a cómo se representan las relacione
 ## Referencias
 
 - <https://dotnettutorials.net/lesson/entity-framework-core-inheritance/>
+- <https://dotnettutorials.net/lesson/table-per-hierarchy-inheritance-in-entity-framework-core/>
+- <https://dotnettutorials.net/lesson/table-per-type-inheritance-in-entity-framework-core/>
+- <https://dotnettutorials.net/lesson/table-per-concrete-type-inheritance-in-entity-framework-core/>
