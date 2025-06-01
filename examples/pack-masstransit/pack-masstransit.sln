@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7DE27412-FC8C-4D94-BC33-60EC6A4370A3}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit.Memory", "MassTransit.Memory\MassTransit.Memory.csproj", "{764E30CC-A657-0798-A75C-14666C90869B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit.ServiceBus", "MassTransit.ServiceBus\MassTransit.ServiceBus.csproj", "{8ACEC030-732B-C03C-0EFE-07905764355D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{764E30CC-A657-0798-A75C-14666C90869B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764E30CC-A657-0798-A75C-14666C90869B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764E30CC-A657-0798-A75C-14666C90869B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764E30CC-A657-0798-A75C-14666C90869B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACEC030-732B-C03C-0EFE-07905764355D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACEC030-732B-C03C-0EFE-07905764355D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACEC030-732B-C03C-0EFE-07905764355D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACEC030-732B-C03C-0EFE-07905764355D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD068D5E-9882-4A86-B912-AD1DB414DA92}
+	EndGlobalSection
+EndGlobal
