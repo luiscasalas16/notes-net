@@ -12,6 +12,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit.Memory", "MassT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransit.ServiceBus", "MassTransit.ServiceBus\MassTransit.ServiceBus.csproj", "{8ACEC030-732B-C03C-0EFE-07905764355D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.AzureServiceBus.Api", "Sample.AzureServiceBus.Api\Sample.AzureServiceBus.Api.csproj", "{874B0700-D991-9030-543C-41410A7C6E53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.AzureServiceBus.Contracts", "Sample.AzureServiceBus.Contracts\Sample.AzureServiceBus.Contracts.csproj", "{6D1077C0-7A98-C123-D2BA-A31D631D5077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.AzureServiceBus.Worker", "Sample.AzureServiceBus.Worker\Sample.AzureServiceBus.Worker.csproj", "{44AFB45D-37F9-3BDC-6D43-C3269879CE18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +32,18 @@ Global
 		{8ACEC030-732B-C03C-0EFE-07905764355D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ACEC030-732B-C03C-0EFE-07905764355D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ACEC030-732B-C03C-0EFE-07905764355D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{874B0700-D991-9030-543C-41410A7C6E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874B0700-D991-9030-543C-41410A7C6E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874B0700-D991-9030-543C-41410A7C6E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874B0700-D991-9030-543C-41410A7C6E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1077C0-7A98-C123-D2BA-A31D631D5077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1077C0-7A98-C123-D2BA-A31D631D5077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1077C0-7A98-C123-D2BA-A31D631D5077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1077C0-7A98-C123-D2BA-A31D631D5077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
