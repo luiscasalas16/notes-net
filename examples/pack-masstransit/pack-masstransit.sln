@@ -18,6 +18,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.AzureServiceBus.Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.AzureServiceBus.Worker", "Sample.AzureServiceBus.Worker\Sample.AzureServiceBus.Worker.csproj", "{44AFB45D-37F9-3BDC-6D43-C3269879CE18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saga.Inventory.Service", "Saga.Inventory.Service\Saga.Inventory.Service.csproj", "{16761E8C-757A-AB52-2C9D-A04492124017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saga.Message.Contracts", "Saga.Message.Contracts\Saga.Message.Contracts.csproj", "{455C9C13-1779-D9D7-8557-1CF931945D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saga.Order.Service", "Saga.Order.Service\Saga.Order.Service.csproj", "{EF361BB7-1195-E66E-D97B-C2995C1CB1A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saga.Payment.Service", "Saga.Payment.Service\Saga.Payment.Service.csproj", "{9F3E680A-A1F2-6C66-40B6-D67685706A90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +52,22 @@ Global
 		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44AFB45D-37F9-3BDC-6D43-C3269879CE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16761E8C-757A-AB52-2C9D-A04492124017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16761E8C-757A-AB52-2C9D-A04492124017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16761E8C-757A-AB52-2C9D-A04492124017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16761E8C-757A-AB52-2C9D-A04492124017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{455C9C13-1779-D9D7-8557-1CF931945D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455C9C13-1779-D9D7-8557-1CF931945D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455C9C13-1779-D9D7-8557-1CF931945D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455C9C13-1779-D9D7-8557-1CF931945D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF361BB7-1195-E66E-D97B-C2995C1CB1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF361BB7-1195-E66E-D97B-C2995C1CB1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF361BB7-1195-E66E-D97B-C2995C1CB1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF361BB7-1195-E66E-D97B-C2995C1CB1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F3E680A-A1F2-6C66-40B6-D67685706A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F3E680A-A1F2-6C66-40B6-D67685706A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F3E680A-A1F2-6C66-40B6-D67685706A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F3E680A-A1F2-6C66-40B6-D67685706A90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
