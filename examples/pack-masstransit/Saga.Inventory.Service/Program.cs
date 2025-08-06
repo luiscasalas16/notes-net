@@ -9,11 +9,14 @@ builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<ReserveInventoryConsumer>();
 
-    x.UsingRabbitMq((context, cfg) =>
-    {
-        cfg.Host(builder.Configuration.GetConnectionString("RabbitMQ"));
-        cfg.ConfigureEndpoints(context);
-    });
+    x.UsingAzureServiceBus(
+        (context, configurator) =>
+        {
+            configurator.Host(builder.Configuration.GetValue<string>("ServiceBusKey"));
+
+            configurator.ConfigureEndpoints(context);
+        }
+    );
 });
 
 var app = builder.Build();

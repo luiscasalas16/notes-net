@@ -1,14 +1,27 @@
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Order.Service.Sagas;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddSwaggerDocument(settings =>
+{
+    settings.PostProcess = document =>
+    {
+        document.Info.Version = "v1";
+        document.Info.Title = "Sample API";
+        document.Info.Description = "A simple MassTransit API Sample";
+    };
+});
 
 builder.Services.AddDbContext<OrderSagaDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
+{
+    options.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
+    options.UseSqlServer(builder.Configuration.GetValue<string>("SqlServer"));
+});
 
 builder.Services.AddMassTransit(x =>
 {
@@ -17,21 +30,25 @@ builder.Services.AddMassTransit(x =>
         {
             r.ConcurrencyMode = ConcurrencyMode.Pessimistic;
             r.AddDbContext<DbContext, OrderSagaDbContext>();
-            r.UsePostgres();
+            r.UseSqlServer();
         });
 
-    x.UsingRabbitMq((context, cfg) =>
-    {
-        cfg.Host(builder.Configuration.GetConnectionString("RabbitMQ"));
-        cfg.ConfigureEndpoints(context);
-    });
+    x.UsingAzureServiceBus(
+        (context, configurator) =>
+        {
+            configurator.Host(builder.Configuration.GetValue<string>("ServiceBusKey"));
+
+            configurator.ConfigureEndpoints(context);
+        }
+    );
 });
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseOpenApi();
+    app.UseSwaggerUi();
 }
 
 app.UseHttpsRedirection();

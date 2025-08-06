@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Order.Service.Sagas;
 
 #nullable disable
@@ -23,8 +22,6 @@ namespace Order.Service.Migrations
                 .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
             modelBuilder.Entity("Order.Service.Sagas.OrderState", b =>
                 {
                     b.Property<Guid>("CorrelationId")
@@ -33,11 +30,11 @@ namespace Order.Service.Migrations
                     b.Property<string>("CurrentState")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("character varying(64)");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("CustomerEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("timestamp with time zone");
@@ -47,7 +44,7 @@ namespace Order.Service.Migrations
 
                     b.Property<string>("PaymentIntentId")
                         .HasMaxLength(64)
-                        .HasColumnType("character varying(64)");
+                        .HasColumnType("varchar(64)");
 
                     b.HasKey("CorrelationId");
 
