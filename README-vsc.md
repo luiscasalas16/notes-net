@@ -7,7 +7,6 @@
 ## Extensiones
 
 - General
-  - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
   - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Format Files](https://marketplace.visualstudio.com/items?itemName=jbockle.jbockle-format-files)
