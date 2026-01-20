@@ -2,12 +2,21 @@
 
 Este repositorio contiene ejemplos y documentación relacionada con .Net.
 
-- <https://code-maze.com/dotnet-what-is-it-why-should-we-use-it>
-- [Visual Studio](./README-vs.md)
-- [Visual Studio Code](./README-vsc.md)
-- [ASP.NET](./README-aspnet.md)
-- [C#](./README-csharp.md)
-- [Entity Framework](./README-ef.md)
+- General
+  - [Why .Net ?](https://code-maze.com/dotnet-what-is-it-why-should-we-use-it)
+  - [Why C# ?](https://newsletter.techworld-with-milan.com/p/why-csharp)
+  - [.Net Roadmap](https://github.com/milanm/DotNet-Developer-Roadmap/blob/main/NET%20Roadmap.png)
+- Versiones
+  - [.Net Timeline](https://github.com/milanm/DotNet-Developer-Roadmap/blob/main/CSharp-NET_Timeline.jpg)
+  - [What's new in .NET](https://learn.microsoft.com/en-us/dotnet/core/whats-new/)
+  - [Breaking changes in .NET](https://learn.microsoft.com/en-us/dotnet/core/compatibility/breaking-changes)
+- Tecnologías
+  - [C#](./README-csharp.md)
+  - [ASP.NET](./README-aspnet.md)
+  - [Entity Framework](./README-ef.md)
+- Herramientas
+  - [Visual Studio](./README-vs.md)
+  - [Visual Studio Code](./README-vsc.md)
 
 ## Comandos
 
@@ -29,7 +38,10 @@ dotnet new worker --output NetWorker --name XYZ
 dotnet new sln --output . --name XYZ
 
 #crear gitignore
-dotnet new gitignore
+dotnet new
+
+#ejecutar script
+dotnet run main.cs
 ```
 
 ### -Net Framework
